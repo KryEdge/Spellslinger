@@ -1,5 +1,5 @@
 # Spellslinger
 
-## Autores
-### Tomas Carceglia
-### Matias Karplus
+### Autores
+## Tomas Carceglia
+## Matias Karplus
