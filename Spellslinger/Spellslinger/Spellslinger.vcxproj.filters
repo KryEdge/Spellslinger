@@ -19,6 +19,9 @@
     <Filter Include="src\objects\enemy1">
       <UniqueIdentifier>{ff8c2663-06eb-448f-8888-cda11e80e8b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\objects\shooting">
+      <UniqueIdentifier>{0f349f5d-b0bc-48f1-a76a-273f038a45dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\logic\Main.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>src\objects\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\shooting\Shooting.cpp">
+      <Filter>src\objects\shooting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy1.h">
@@ -43,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h">
       <Filter>src\objects\mainframe</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting.h">
+      <Filter>src\objects\shooting</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

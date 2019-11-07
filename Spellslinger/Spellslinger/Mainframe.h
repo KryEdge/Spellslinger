@@ -2,6 +2,7 @@
 #define MAINFRAME_H
 #include "raylib.h"
 
+namespace sSlinger {
 	class Mainframe {
 		int _winWidth;
 		int _winHeight;
@@ -11,4 +12,6 @@
 		void initProgram();
 	};
 
+}
+	
 #endif

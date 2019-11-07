@@ -1,17 +1,18 @@
 #include "Player.h"
+#include "raylib.h"
+
+namespace sSlinger {
+	Player::Player()
+	{
+		_rec.height = 20.0f;
+		_rec.width = 20.0f;
+		_rec.x = 20.0f;
+		_rec.y = 20.0f;
+	}
 
 
-
-Player::Player(){
-	_rec.x = 0;
-	_rec.y = 0;
-	_rec.height = 40;
-	_rec.width = 40;
-	_color = YELLOW;
-
+	Player::~Player()
+	{
+	}
 }
-
-
-Player::~Player()
-{
-}
+	
