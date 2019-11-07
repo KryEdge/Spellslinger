@@ -1,7 +1,7 @@
-#include "Mainframe.h"
+#include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
+using namespace sSlinger;
 
-namespace sSlinger {
 	
 	Mainframe::Mainframe() {
 		_winWidth = 800;
@@ -27,9 +27,6 @@ namespace sSlinger {
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 			EndDrawing();
 		}
-
-
 		CloseWindow();
-
 	}
-}
+

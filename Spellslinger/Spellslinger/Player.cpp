@@ -1,6 +1,6 @@
 #include "Player.h"
 
-namespace sSlinger {
+
 	Player::Player()
 	{
 	}
@@ -10,4 +10,3 @@ namespace sSlinger {
 	{
 	}
 
-}
