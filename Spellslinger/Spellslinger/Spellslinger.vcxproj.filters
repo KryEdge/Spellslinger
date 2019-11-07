@@ -1,22 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{50c606b2-1db9-4780-b552-a741630a0f84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="src\logic">
+      <UniqueIdentifier>{bf34556a-cf83-45e1-a695-5c25367e7865}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="src\objects">
+      <UniqueIdentifier>{62107ca1-ed55-4c06-8010-bdba55692533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\player">
+      <UniqueIdentifier>{7bd00f3c-af4a-4059-b8b4-6961d880aa28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\mainframe">
+      <UniqueIdentifier>{b3d3f4bf-3a26-4999-9b60-a28f559e930e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\enemy1">
+      <UniqueIdentifier>{ff8c2663-06eb-448f-8888-cda11e80e8b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\logic\Main.cpp">
+      <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp">
+      <Filter>src\objects\mainframe</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy1.cpp">
+      <Filter>src\objects\enemy1</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src\objects\player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\objects\mainframe\Mainframe.h">
+      <Filter>src\objects\mainframe</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy1.h">
+      <Filter>src\objects\enemy1</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>src\objects\player</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
