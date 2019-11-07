@@ -1,10 +1,15 @@
-#include "objects/mainframe/Mainframe.h"
+#include "Mainframe.h"
+#include "raylib.h"
 
-class Player{
-	Rectangle _rec;
-	Color color;
-public:
-	Player();
-	~Player();
-};
+namespace sSlinger {
+	class Player {
+		Rectangle _rec;
+		Color _color;
+	public:
+		Player();
+		~Player();
+	};
 
+
+
+}

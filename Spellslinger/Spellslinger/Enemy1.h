@@ -1,8 +1,12 @@
 #pragma once
-class Enemy1
-{
-public:
-	Enemy1();
-	~Enemy1();
-};
 
+namespace sSlinger {
+	class Enemy1
+	{
+	public:
+		Enemy1();
+		~Enemy1();
+	};
+
+
+}
