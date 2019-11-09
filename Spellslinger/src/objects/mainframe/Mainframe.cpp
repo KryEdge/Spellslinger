@@ -14,7 +14,7 @@ namespace sSlinger {
 	}
 	int temp1 = 20;
 	int temp2 = 430;
-	bool shot = true;	
+	bool shot = false;	
 	Vector2 bullet{ 20,430 };
 	Player jojo;
 
@@ -31,13 +31,18 @@ namespace sSlinger {
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-				shoot(bullet);//ME TIRA UN ERROR RARISIMO DE "DEMASIADOS ARGUMENTOS". ME ESTOY VOLVIENDO LOCO
 				shot = true;
 			}
-				
+			//NO SE COMO TE SENTIS SOBRE LOS COMENTARIOS EN EL CODIGO PERO ACA VA.
+			//ESTUVE CODEANDO Y CREO QUE ESTOY MUY QUEMADO YA PARA SEGUIR AHORA, LA FUNCION DE DISPARO ANDA PERO NO LOGRO PEGAR HACER QUE VIAJE BIEN
+			//POR EL LADO POSITIVO SI DISPARAS Y ACERCAS AL MOUSE A LA BALA HACE COSAS RARAS Y ESO PUEDE USARSE EN EL FUTURO
 			if (shot) {
-
+				moveBullet(bullet);
 				DrawCircleV(bullet, 5, RED);
+			}
+			if (bullet.x > _winWidth || bullet.x < 0 || bullet.y > _winHeight || bullet.y < 0) {
+				shot = false;
+				returnBullet(bullet);
 			}
 
 			EndDrawing();

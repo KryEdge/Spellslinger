@@ -7,7 +7,7 @@ namespace sSlinger {
 		_rec.height = 20.0f;
 		_rec.width = 20.0f;
 		_rec.x = 20.0f;
-		_rec.y = 20.0f;
+		_rec.y = 430.0f;
 	}
 
 

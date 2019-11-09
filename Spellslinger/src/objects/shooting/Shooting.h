@@ -1,6 +1,8 @@
 #pragma once
+#include "raylib.h"
 
 namespace sSlinger {
 
-	void shoot();
+	void moveBullet(Vector2 &bullet);
+	void returnBullet(Vector2 &bullet);
 }

@@ -11,5 +11,7 @@ namespace sSlinger {
 		~Mainframe();
 		void initProgram();
 	};
+
 }
+	
 #endif

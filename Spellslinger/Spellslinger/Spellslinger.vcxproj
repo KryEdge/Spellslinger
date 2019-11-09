@@ -20,16 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\logic\Main.cpp" />
+    <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp" />
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
+    <ClCompile Include="..\src\objects\player\Player.cpp" />
     <ClCompile Include="..\src\objects\shooting\Shooting.cpp" />
-    <ClCompile Include="Enemy1.cpp" />
-    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\objects\enemy1\Enemy1.h" />
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
-    <ClInclude Include="Enemy1.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Shooting.h" />
+    <ClInclude Include="..\src\objects\player\Player.h" />
+    <ClInclude Include="..\src\objects\shooting\Shooting.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
