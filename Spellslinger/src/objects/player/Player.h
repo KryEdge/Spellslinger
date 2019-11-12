@@ -1,4 +1,4 @@
-#include "Mainframe.h"
+#include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
 
 namespace sSlinger {
@@ -7,11 +7,12 @@ namespace sSlinger {
 		Rectangle _rec;
 		Player();
 		~Player();
+
 	private:
 		Color _color;
-		int lives;
-		float posx;
-		float posy;
+		int _lives;
+		float _posx;
+		float _posy;
 	};
 
 }

@@ -47,11 +47,11 @@
     <ClInclude Include="..\src\objects\shooting\Shooting.h">
       <Filter>src\objects\shooting</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\objects\enemy1\Enemy1.h">
-      <Filter>src\objects\enemy1</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h">
       <Filter>src\objects\mainframe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\enemy1\Enemy1.h">
+      <Filter>src\objects\enemy1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

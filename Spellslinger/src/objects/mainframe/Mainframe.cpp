@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "objects/player/Player.h"
 #include "objects/shooting/Shooting.h"
+#include "objects/enemy1/Enemy1.h"
 
 namespace sSlinger {
 	Mainframe::Mainframe() {
@@ -17,6 +18,7 @@ namespace sSlinger {
 	bool shot = false;	
 	Vector2 bullet{ 20,430 };
 	Player jojo;
+	Enemy1 flyer;
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
@@ -30,6 +32,8 @@ namespace sSlinger {
 			DrawRectangleRec(jojo._rec, ballColor); 
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 
+			DrawCircle(static_cast<int>(flyer.pos.x),static_cast<int>(flyer.pos.y), 20, YELLOW);
+			flyer.movement();
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 				shot = true;
 			}
