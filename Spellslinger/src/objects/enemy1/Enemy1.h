@@ -5,7 +5,6 @@ namespace sSlinger {
 	class Enemy1
 	{
 	private:
-	
 	int _life;
 
 	public:
@@ -13,7 +12,7 @@ namespace sSlinger {
 		Enemy1();
 		~Enemy1();
 		void setLife(int life);
-		float calculateSin(float w, float phase);
+		float calculateSin(float phase, float period);
 		void movement();
 	};
 
