@@ -16,7 +16,7 @@ namespace sSlinger {
 	}
 	Vector2 bullet{ 20,430 };
 	Player jojo;
-	Enemy1 flyer;
+	Enemy1* flyer;
 	Bullet* spell;
 
 	void Mainframe::initProgram() {
@@ -24,15 +24,16 @@ namespace sSlinger {
 		SetTargetFPS(60);
 		Color ballColor = DARKBLUE;
 		SetTargetFPS(60);
+		flyer = new Enemy1;
 
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);
-			DrawRectangleRec(jojo._rec, ballColor); 
+			DrawRectangleRec(jojo._rec, ballColor);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
-
-			DrawCircle(static_cast<int>(flyer.pos.x),static_cast<int>(flyer.pos.y), 20, YELLOW);
-			flyer.movement();
+			DrawCircleV(flyer->getPos(), 20, YELLOW);
+		
+			flyer->movement();
 			spellmanager();
 
 
@@ -52,8 +53,14 @@ namespace sSlinger {
 					spell = NULL;
 				}
 			}
-
 			EndDrawing();
+			if (spell !=NULL)
+				if (CheckCollisionCircles(flyer->getPos(), 20, spell->getPos(), spell->getHitbox())) {
+				
+					delete spell;
+					spell = NULL;
+		
+				}
 		}
 		CloseWindow();
 	}

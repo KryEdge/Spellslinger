@@ -2,7 +2,7 @@
 #include "logic/Spellmanager.h"
 
 namespace sSlinger{
-	Color mouseColor = BLUE;
+	Color mouseColor = RED;
 	Vector2 spellButton[4];
 	Rectangle selectedSpell{10,10,50,50};
 	Vector2 buttonSize{ 50,50 };
