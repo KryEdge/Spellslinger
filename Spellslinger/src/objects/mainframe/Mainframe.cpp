@@ -3,6 +3,7 @@
 #include "objects/player/Player.h"
 #include "objects/enemy1/Enemy1.h"
 #include "objects/spells/bullet/Bullet.h"
+#include "logic/Spellmanager.h"
 
 namespace sSlinger {
 	Mainframe::Mainframe() {

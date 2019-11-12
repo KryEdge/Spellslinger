@@ -12,7 +12,6 @@ namespace sSlinger {
 		Enemy1();
 		~Enemy1();
 		void setLife(int life);
-		float calculateSin(float phase, float period);
 		void movement();
 	};
 

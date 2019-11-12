@@ -20,17 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\logic\Main.cpp" />
+    <ClCompile Include="..\src\logic\Spellmanager.cpp" />
     <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp" />
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
-    <ClCompile Include="..\src\objects\shooting\Shooting.cpp" />
     <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\logic\Spellmanager.h" />
     <ClInclude Include="..\src\objects\enemy1\Enemy1.h" />
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
-    <ClInclude Include="..\src\objects\shooting\Shooting.h" />
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -127,7 +127,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Matias\Desktop\Programacion\Spellslinger\Spellslinger\src;$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

@@ -41,7 +41,7 @@ void Bullet::vecBullet() {
 	_distance.y = _target.y - _pos.y;
 }
 void Bullet::moveBullet() {
-
+	
 	_pos.x += _distance.x / 60;
 	_pos.y += _distance.y/ 60;
 

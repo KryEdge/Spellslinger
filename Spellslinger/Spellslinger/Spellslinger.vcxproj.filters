@@ -19,9 +19,6 @@
     <Filter Include="src\objects\enemy1">
       <UniqueIdentifier>{ff8c2663-06eb-448f-8888-cda11e80e8b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\objects\shooting">
-      <UniqueIdentifier>{0f349f5d-b0bc-48f1-a76a-273f038a45dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\objects\spells">
       <UniqueIdentifier>{204548e4-0835-4d2d-9cff-d026400b2034}</UniqueIdentifier>
     </Filter>
@@ -36,9 +33,6 @@
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp">
       <Filter>src\objects\mainframe</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\objects\shooting\Shooting.cpp">
-      <Filter>src\objects\shooting</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp">
       <Filter>src\objects\enemy1</Filter>
     </ClCompile>
@@ -48,13 +42,13 @@
     <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp">
       <Filter>src\objects\spells\bullet</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\logic\Spellmanager.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
       <Filter>src\objects\player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\objects\shooting\Shooting.h">
-      <Filter>src\objects\shooting</Filter>
     </ClInclude>
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h">
       <Filter>src\objects\mainframe</Filter>
@@ -64,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h">
       <Filter>src\objects\spells\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\logic\Spellmanager.h">
+      <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
