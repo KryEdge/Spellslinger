@@ -1,8 +1,8 @@
 #include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
 #include "objects/player/Player.h"
-#include "objects/shooting/Shooting.h"
 #include "objects/enemy1/Enemy1.h"
+#include "objects/spells/bullet/Bullet.h"
 
 namespace sSlinger {
 	Mainframe::Mainframe() {
@@ -13,12 +13,10 @@ namespace sSlinger {
 	Mainframe::~Mainframe() {
 
 	}
-	int temp1 = 20;
-	int temp2 = 430;
-	bool shot = false;	
 	Vector2 bullet{ 20,430 };
 	Player jojo;
 	Enemy1 flyer;
+	Bullet* spell;
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
@@ -34,19 +32,24 @@ namespace sSlinger {
 
 			DrawCircle(static_cast<int>(flyer.pos.x),static_cast<int>(flyer.pos.y), 20, YELLOW);
 			flyer.movement();
+			spellmanager();
+
+
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-				shot = true;
+				spell = new Bullet;
+				spell->setActive(true);
+				spell->vecBullet();
 			}
-			//NO SE COMO TE SENTIS SOBRE LOS COMENTARIOS EN EL CODIGO PERO ACA VA.
-			//ESTUVE CODEANDO Y CREO QUE ESTOY MUY QUEMADO YA PARA SEGUIR AHORA, LA FUNCION DE DISPARO ANDA PERO NO LOGRO PEGAR HACER QUE VIAJE BIEN
-			//POR EL LADO POSITIVO SI DISPARAS Y ACERCAS AL MOUSE A LA BALA HACE COSAS RARAS Y ESO PUEDE USARSE EN EL FUTURO
-			if (shot) {
-				moveBullet(bullet);
-				DrawCircleV(bullet, 5, RED);
-			}
-			if (bullet.x > _winWidth || bullet.x < 0 || bullet.y > _winHeight || bullet.y < 0) {
-				shot = false;
-				returnBullet(bullet);
+		
+			if (spell != NULL)
+			if (spell->getActive()) {
+				spell->moveBullet();
+				DrawCircleV({ spell->getPos().x, spell->getPos().y }, spell->getHitbox(), RED);
+				if (spell->getPos().x > _winWidth || spell->getPos().x < 0 || spell->getPos().y > _winHeight || spell->getPos().y < 0) {
+					spell->setActive(false);
+					delete spell;
+					spell = NULL;
+				}
 			}
 
 			EndDrawing();

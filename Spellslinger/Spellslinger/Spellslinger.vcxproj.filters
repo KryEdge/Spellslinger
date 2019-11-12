@@ -22,6 +22,12 @@
     <Filter Include="src\objects\shooting">
       <UniqueIdentifier>{0f349f5d-b0bc-48f1-a76a-273f038a45dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\objects\spells">
+      <UniqueIdentifier>{204548e4-0835-4d2d-9cff-d026400b2034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\spells\bullet">
+      <UniqueIdentifier>{0ecb988a-7aa1-4c50-8d3d-d47d98170447}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\logic\Main.cpp">
@@ -39,6 +45,9 @@
     <ClCompile Include="..\src\objects\player\Player.cpp">
       <Filter>src\objects\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp">
+      <Filter>src\objects\spells\bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -52,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\enemy1\Enemy1.h">
       <Filter>src\objects\enemy1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\spells\bullet\Bullet.h">
+      <Filter>src\objects\spells\bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

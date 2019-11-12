@@ -24,12 +24,14 @@
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
     <ClCompile Include="..\src\objects\shooting\Shooting.cpp" />
+    <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\enemy1\Enemy1.h" />
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
     <ClInclude Include="..\src\objects\shooting\Shooting.h" />
+    <ClInclude Include="..\src\objects\spells\bullet\Bullet.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
