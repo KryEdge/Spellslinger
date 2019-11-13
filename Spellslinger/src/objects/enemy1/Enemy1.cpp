@@ -1,5 +1,4 @@
 #include "objects/enemy1/Enemy1.h"
-#include "objects/mainframe/Mainframe.h"
 #include <cmath>
 
 namespace sSlinger {

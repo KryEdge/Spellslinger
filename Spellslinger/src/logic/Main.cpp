@@ -3,7 +3,7 @@
 using namespace sSlinger;
 
 void main() {
-	Mainframe* spellslinger = new Mainframe;
-	spellslinger->initProgram();
-	delete spellslinger;
+Mainframe* spellslinger = new Mainframe;
+	spellslinger->runProgram();
+delete spellslinger;
 }

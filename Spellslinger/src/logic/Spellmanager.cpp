@@ -7,7 +7,7 @@ namespace sSlinger{
 		_spellButton[4];
 		_selectedSpell = { 10,10,50,50 };
 		_buttonSize = { 50,50 };
-		_selected = 1;
+		_elementSelected = 1;
 	}
 	void SpellManager::initializeButtons() {
 		for (int i = 0; i < 4; i++)
@@ -21,7 +21,12 @@ namespace sSlinger{
 			_spellButton[i].y = 10;
 		}
 	}
-
+	int SpellManager::getSelected() {
+		return _elementSelected;
+	}
+	void SpellManager::setSelected(int selected) {
+		_elementSelected = selected;
+	}
 
 	void SpellManager::spellmanager() {
 		DrawCircleLines(GetMouseX(), GetMouseY(), 15, _mouseColor);
@@ -36,30 +41,23 @@ namespace sSlinger{
 		if (IsKeyPressed(KEY_Q) || IsKeyPressed(KEY_ONE)) {
 			_mouseColor = RED;
 			_selectedSpell.x = 10;
-			_selected = 1;
+			_elementSelected = 1;
 		}		
 		if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_TWO)) {
 			_mouseColor = YELLOW;
 			_selectedSpell.x = 80;
-			_selected = 2;
+			_elementSelected = 2;
 		}		
 		if (IsKeyPressed(KEY_E) || IsKeyPressed(KEY_THREE)) {
 			_mouseColor = SKYBLUE;
 			_selectedSpell.x = 150;
-			_selected = 3;
+			_elementSelected = 3;
 		}	
 		if (IsKeyPressed(KEY_R) || IsKeyPressed(KEY_FOUR)) {
 			_mouseColor = LIGHTGRAY;
 			_selectedSpell.x = 220;
-			_selected = 4;
+			_elementSelected = 4;
 		}
-	}
-
-	int SpellManager::getSelected() {
-		return _selected;
-	}
-	void SpellManager::setSelected(int selected) {
-		_selected = selected;
 	}
 
 	

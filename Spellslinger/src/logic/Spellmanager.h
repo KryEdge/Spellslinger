@@ -4,7 +4,7 @@ namespace sSlinger {
 
 	class SpellManager {
 	private:
-		int _selected;
+		int _elementSelected;
 		Color _mouseColor;
 		float _crosshairSize;
 		Vector2 _spellButton[4];
