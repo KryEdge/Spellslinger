@@ -31,9 +31,11 @@ namespace sSlinger {
 			ClearBackground(BLACK);
 			DrawRectangleRec(jojo._rec, ballColor);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
-			DrawCircleV(flyer->getPos(), 20, YELLOW);
-		
-			flyer->movement();
+			if (flyer != NULL) {
+				
+				DrawCircleV(flyer->getPos(), 20, YELLOW);
+				flyer->movement();
+			}
 			spellmanager();
 
 
@@ -42,6 +44,12 @@ namespace sSlinger {
 				spell->setActive(true);
 				spell->vecBullet();
 			}
+
+			if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)) {
+				flyer->setSpeed(0, 0);
+			}
+
+
 		
 			if (spell != NULL)
 			if (spell->getActive()) {
@@ -54,12 +62,15 @@ namespace sSlinger {
 				}
 			}
 			EndDrawing();
-			if (spell !=NULL)
+
+			if (spell !=NULL&&flyer!=NULL)
 				if (CheckCollisionCircles(flyer->getPos(), 20, spell->getPos(), spell->getHitbox())) {
-				
 					delete spell;
 					spell = NULL;
-		
+					delete flyer;
+					flyer = NULL;
+
+					flyer = new Enemy1;
 				}
 		}
 		CloseWindow();

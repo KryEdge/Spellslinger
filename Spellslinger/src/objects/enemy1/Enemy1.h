@@ -15,8 +15,11 @@ namespace sSlinger {
 		Enemy1();
 		~Enemy1();
 		void setLife(int life);
+		void setSpeed(int x, int y);
 		Vector2 getPos();
 		void movement();
+		float getSpeedX();
+		float getSpeedY();
 	};
 
 

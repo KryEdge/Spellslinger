@@ -8,6 +8,7 @@ namespace sSlinger {
 		Player();
 		~Player();
 
+
 	private:
 		Color _color;
 		int _lives;

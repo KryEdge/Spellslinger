@@ -50,4 +50,15 @@ namespace sSlinger {
 		}
 		
 	}
+	void Enemy1::setSpeed(int x, int y) {
+		_speedX = x;
+		_speedY = y;
+	}
+	float Enemy1::getSpeedX() {
+		return _speedX;
+	}
+
+	float Enemy1::getSpeedY() {
+		return _speedY;
+	}
 }
