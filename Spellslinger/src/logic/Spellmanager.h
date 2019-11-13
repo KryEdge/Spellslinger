@@ -1,5 +1,22 @@
 #pragma once
 
 namespace sSlinger {
-	void spellmanager();
+
+	class SpellManager {
+	private:
+		int _selected;
+		Color _mouseColor;
+		float _crosshairSize;
+		Vector2 _spellButton[4];
+		Rectangle _selectedSpell;
+		Vector2 _buttonSize;
+
+	public:
+		SpellManager();
+		void initializeButtons();
+		void spellmanager();
+		int getSelected();
+		void setSelected(int selected);
+		
+	};
 }

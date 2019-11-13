@@ -4,16 +4,17 @@
 
 namespace sSlinger {
 	Enemy1::Enemy1(){
-		_winWidth = 750;
+		_winWidth = 810;
 		_winHeight = 450;
 		_pos.x = _winWidth;
 		_pos.y = _winHeight / 2;
 		_life = 20;
 		_speedY = 1.0f;
-		_speedX = 3.0f;
+		_speedX = 2.5f;
 		_inc = 0.05f;
 	}
 	Enemy1::~Enemy1(){
+
 	}
 
 	void Enemy1::setLife(int life){

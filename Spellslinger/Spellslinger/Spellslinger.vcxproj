@@ -25,6 +25,7 @@
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
     <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp" />
+    <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\logic\Spellmanager.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h" />
+    <ClInclude Include="FFreeze.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -135,6 +137,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

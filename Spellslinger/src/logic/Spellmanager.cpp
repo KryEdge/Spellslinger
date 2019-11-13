@@ -2,53 +2,64 @@
 #include "logic/Spellmanager.h"
 
 namespace sSlinger{
-	Color mouseColor = RED;
-	Vector2 spellButton[4];
-	Rectangle selectedSpell{10,10,50,50};
-	Vector2 buttonSize{ 50,50 };
-
-	void initializeButtons() {
+	SpellManager::SpellManager() {
+		_mouseColor = RED;
+		_spellButton[4];
+		_selectedSpell = { 10,10,50,50 };
+		_buttonSize = { 50,50 };
+		_selected = 1;
+	}
+	void SpellManager::initializeButtons() {
 		for (int i = 0; i < 4; i++)
 		{
 			if (i == 0) {
-				spellButton[i].x = 10;
+				_spellButton[i].x = 10;
 			}
 			else {
-				spellButton[i].x = spellButton[i - 1].x + 70;
+				_spellButton[i].x = _spellButton[i - 1].x + 70;
 			}
-			spellButton[i].y = 10;
+			_spellButton[i].y = 10;
 		}
 	}
 
 
-	void spellmanager() {
-		initializeButtons();
-		DrawCircleLines(GetMouseX(), GetMouseY(), 15, mouseColor);
-		for (int i = 0; i < 4; i++)
-		{
-			DrawRectangleV(spellButton[0], buttonSize, WHITE);
-			DrawRectangleV(spellButton[1], buttonSize, WHITE);
-			DrawRectangleV(spellButton[2], buttonSize, WHITE);
-			DrawRectangleV(spellButton[3], buttonSize, WHITE);
-
-			DrawRectangleLinesEx(selectedSpell, 10, mouseColor);
+	void SpellManager::spellmanager() {
+		DrawCircleLines(GetMouseX(), GetMouseY(), 15, _mouseColor);
+		for (int i = 0; i < 4; i++){
+			DrawRectangleV(_spellButton[0], _buttonSize, WHITE);
+			DrawRectangleV(_spellButton[1], _buttonSize, WHITE);
+			DrawRectangleV(_spellButton[2], _buttonSize, WHITE);
+			DrawRectangleV(_spellButton[3], _buttonSize, WHITE);
+			DrawRectangleLinesEx(_selectedSpell, 10, _mouseColor);
 		}
+
 		if (IsKeyPressed(KEY_Q) || IsKeyPressed(KEY_ONE)) {
-			mouseColor = RED;
-			selectedSpell.x = 10;
+			_mouseColor = RED;
+			_selectedSpell.x = 10;
+			_selected = 1;
 		}		
 		if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_TWO)) {
-			mouseColor = YELLOW;
-			selectedSpell.x = 80;
+			_mouseColor = YELLOW;
+			_selectedSpell.x = 80;
+			_selected = 2;
 		}		
 		if (IsKeyPressed(KEY_E) || IsKeyPressed(KEY_THREE)) {
-			mouseColor = SKYBLUE;
-			selectedSpell.x = 150;
-		}		
+			_mouseColor = SKYBLUE;
+			_selectedSpell.x = 150;
+			_selected = 3;
+		}	
 		if (IsKeyPressed(KEY_R) || IsKeyPressed(KEY_FOUR)) {
-			mouseColor = LIGHTGRAY;
-			selectedSpell.x = 220;
+			_mouseColor = LIGHTGRAY;
+			_selectedSpell.x = 220;
+			_selected = 4;
 		}
+	}
+
+	int SpellManager::getSelected() {
+		return _selected;
+	}
+	void SpellManager::setSelected(int selected) {
+		_selected = selected;
 	}
 
 	

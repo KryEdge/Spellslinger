@@ -18,6 +18,8 @@ namespace sSlinger {
 	Player jojo;
 	Enemy1* flyer;
 	Bullet* spell;
+	SpellManager* spellManager;
+	static float timer = 0;
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
@@ -25,32 +27,42 @@ namespace sSlinger {
 		Color ballColor = DARKBLUE;
 		SetTargetFPS(60);
 		flyer = new Enemy1;
+		spellManager = new SpellManager;
+		bool FFreeze = false;
+		spellManager->initializeButtons();
 
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawRectangleRec(jojo._rec, ballColor);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
+			DrawText(FormatText("v 0.1"), GetScreenWidth() - 50, 1, 20, {255,255,255,100});
 			if (flyer != NULL) {
-				
-				DrawCircleV(flyer->getPos(), 20, YELLOW);
-				flyer->movement();
+				DrawCircleV(flyer->getPos(), 10, YELLOW);
+				if (!FFreeze)
+					flyer->movement();
 			}
-			spellmanager();
+			
+			spellManager->spellmanager();
 
-
-			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)&&spellManager->getSelected()==1) {
 				spell = new Bullet;
 				spell->setActive(true);
 				spell->vecBullet();
 			}
 
-			if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)) {
-				flyer->setSpeed(0, 0);
+			if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) && spellManager->getSelected() == 3) {
+				FFreeze = true;
 			}
 
-
-		
+			if (FFreeze) {
+				timer += 1 * GetFrameTime();
+				if (timer >= 2.5f) {
+					FFreeze = false;
+					timer = 0;
+				}
+			}
+					
 			if (spell != NULL)
 			if (spell->getActive()) {
 				spell->moveBullet();

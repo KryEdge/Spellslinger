@@ -45,6 +45,7 @@
     <ClCompile Include="..\src\logic\Spellmanager.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -62,5 +63,6 @@
     <ClInclude Include="..\src\logic\Spellmanager.h">
       <Filter>src\logic</Filter>
     </ClInclude>
+    <ClInclude Include="FFreeze.h" />
   </ItemGroup>
 </Project>
