@@ -6,17 +6,23 @@ Vacuum::Vacuum() {
 	_target.x = GetMouseX();
 	_target.y = GetMouseY();
 	_pos.x = 40.0f;
-	_pos.y = 430.0f;
+	_pos.y = 330.0f;
 	_timer = 0.0f;
+	_distance.x = NULL;
+	_distance.y = NULL;
 }
 Vacuum::~Vacuum() {
 
 }
 void Vacuum::effect() {
-	DrawCircleV(getPos(), _aoe, WHITE);
+	Color effectColor = WHITE;
+	DrawCircleV(getPos(), _aoe, Fade(effectColor, 0.2f));
 }
 void Vacuum::setTrigger(bool trigger) {
 	_trigger = trigger;
+}
+bool Vacuum::getActive() {
+	return _trigger;
 }
 float Vacuum::getTimer() {
 	return _timer;
@@ -24,10 +30,7 @@ float Vacuum::getTimer() {
 void Vacuum::increaseTimer(float increase) {
 	_timer += increase;
 }
-/*
-bool Vacuum::getTrigger() {
-	return _trigger;
-}*/
+
 Vector2 Vacuum::getPos() {
 	return _pos;
 }
@@ -43,4 +46,14 @@ void Vacuum::setTarget(Vector2 target) {
 
 float Vacuum::getAoe() {
 	return _aoe;
+}
+void Vacuum::vecBullet() {
+	_distance.x = _target.x - _pos.x;
+	_distance.y = _target.y - _pos.y;
+}
+void Vacuum::moveBullet() {
+
+	_pos.x += _distance.x / 60;
+	_pos.y += _distance.y / 60;
+
 }

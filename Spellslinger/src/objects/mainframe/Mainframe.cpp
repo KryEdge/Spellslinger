@@ -119,9 +119,13 @@ namespace sSlinger {
 					fireball = NULL;
 					delete flyer;
 					flyer = NULL;
-
 					flyer = new Enemy1;
 				}
+			if (flyer->getPos().x < 0) {
+				delete flyer;
+				flyer = NULL;
+				flyer = new Enemy1;
+			}
 		}
 			CloseWindow();
 		}

@@ -61,4 +61,19 @@ namespace sSlinger {
 	float Enemy1::getSpeedY() {
 		return _speedY;
 	}
+
+	void Enemy1::moveToPoint(Vector2 Point) {
+		if (_pos.x != Point.x) {
+			if (Point.x > _pos.x)
+				_pos.x += 2.5;
+			else
+				_pos.x -= 2.5;
+		}
+		if (_pos.y != Point.y) {
+			if (Point.y > _pos.y)
+				_pos.y += 2.5;
+			else
+				_pos.y -= 2.5;
+		}
+	}
 }

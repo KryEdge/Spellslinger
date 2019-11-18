@@ -20,6 +20,7 @@ namespace sSlinger {
 		void movement();
 		float getSpeedX();
 		float getSpeedY();
+		void moveToPoint(Vector2 Point);
 	};
 
 
