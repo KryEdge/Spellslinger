@@ -76,6 +76,7 @@ namespace sSlinger {
 					vacuum->setTrigger(false);
 					if (CheckCollisionCircles(vacuum->getPos(), vacuum->getAoe(), flyer->getPos(), 10)) {
 						flyer->setSpeed(0, 0);
+						flyer->moveToPoint(vacuum->getPos());
 					}
 				}
 			}
@@ -106,7 +107,7 @@ namespace sSlinger {
 
 			EndDrawing();
 			if (vacuum != NULL)
-				if (vacuum->getTimer() > 3.0f) {
+				if (vacuum->getTimer() > 6.0f) {
 					vacuumBool = false;
 					delete vacuum;
 					vacuum = NULL;
