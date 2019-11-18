@@ -69,15 +69,14 @@ namespace sSlinger {
 			}
 
 			if (vacuumBool) {
-				if (vacuum->getPos().x >= 220) {
+				if (vacuum->getPos().x >= vacuum->getTarget().x || vacuum->getPos().y <= vacuum->getTarget().y) {
 					vacuum->setPos(vacuum->getPos());
 					vacuum->effect();
 					vacuum->increaseTimer(0.05);
 					vacuum->setTrigger(false);
-				}
-
-				if (CheckCollisionCircles(vacuum->getPos(), vacuum->getAoe(), flyer->getPos(), 10)) {
-					flyer->setSpeed(0, 0);
+					if (CheckCollisionCircles(vacuum->getPos(), vacuum->getAoe(), flyer->getPos(), 10)) {
+						flyer->setSpeed(0, 0);
+					}
 				}
 			}
 
