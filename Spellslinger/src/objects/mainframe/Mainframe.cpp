@@ -36,6 +36,7 @@ namespace sSlinger {
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawRectangleRec(player->getRec(), ballColor);
+			DrawRectangle(player->getRec().x-30, player->getRec().y + 20, 60, 40, SKYBLUE);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 			DrawText(FormatText("v 0.1"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
 			if (flyer != NULL) {
