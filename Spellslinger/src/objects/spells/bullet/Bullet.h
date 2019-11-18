@@ -1,5 +1,6 @@
 #include "raylib.h"
 
+
 class Bullet {
 private:
 	float _hitbox;

@@ -5,7 +5,8 @@
 namespace sSlinger {
 	Player* player;
 	Enemy1* flyer;
-	Bullet* spell;
+	Bullet* fireball;
+	FFreeze* fFreeze;
 	SpellManager* spellManager;
 	static float timer = 0;
 
@@ -45,9 +46,9 @@ namespace sSlinger {
 			spellManager->spellmanager();
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 1) {
-				spell = new Bullet;
-				spell->setActive(true);
-				spell->vecBullet();
+				fireball = new Bullet;
+				fireball->setActive(true);
+				fireball->vecBullet();
 			}
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 3) {
@@ -62,22 +63,22 @@ namespace sSlinger {
 				}
 			}
 
-			if (spell != NULL)
-				if (spell->getActive()) {
-					spell->moveBullet();
-					DrawCircleV({ spell->getPos().x, spell->getPos().y }, spell->getHitbox(), RED);
-					if (spell->getPos().x > _winWidth || spell->getPos().x < 0 || spell->getPos().y > _winHeight || spell->getPos().y < 0) {
-						spell->setActive(false);
-						delete spell;
-						spell = NULL;
+			if (fireball != NULL)
+				if (fireball->getActive()) {
+					fireball->moveBullet();
+					DrawCircleV({ fireball->getPos().x, fireball->getPos().y }, fireball->getHitbox(), RED);
+					if (fireball->getPos().x > _winWidth || fireball->getPos().x < 0 || fireball->getPos().y > _winHeight || fireball->getPos().y < 0) {
+						fireball->setActive(false);
+						delete fireball;
+						fireball = NULL;
 					}
 				}
 			EndDrawing();
 
-			if (spell != NULL && flyer != NULL)
-				if (CheckCollisionCircles(flyer->getPos(), 20, spell->getPos(), spell->getHitbox())) {
-					delete spell;
-					spell = NULL;
+			if (fireball != NULL && flyer != NULL)
+				if (CheckCollisionCircles(flyer->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
+					delete fireball;
+					fireball = NULL;
 					delete flyer;
 					flyer = NULL;
 
