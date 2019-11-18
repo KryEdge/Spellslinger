@@ -8,8 +8,8 @@ namespace sSlinger {
 		_pos.x = _winWidth;
 		_pos.y = _winHeight / 2;
 		_life = 20;
-		_speedY = 1.0f;
-		_speedX = 2.5f;
+		_speedY = 50.0f;
+		_speedX = 205.0f;
 		_inc = 0.05f;
 	}
 	Enemy1::~Enemy1(){
@@ -23,29 +23,29 @@ namespace sSlinger {
 		return _pos;
 	}
 	void Enemy1::movement() {
-		_pos.x -= _speedX;
-		_pos.y += _speedY;
+		_pos.x -= _speedX * GetFrameTime();
+		_pos.y += _speedY * GetFrameTime();
 
 		if (_pos.y > 350) {
-			_speedY = -1.0;	
-			_speedX = 3.0;
+			_speedY = -75.0;	
+			_speedX = 205.0;
 			_inc = 0.05f;
 		}
 		else if (_pos.y < 135) {
-			_speedY = 1.0;
-			_speedX = 3.0;
-			_inc = 0.05f;
+			_speedY = 75.0;
+			_speedX = 205.0;
+			_inc = 10.05f;
 		}
 		else if (_pos.y > 135 && _pos.y < 350) {
 			if (_speedY < 0) {
 				_speedY -= _inc;
-				_speedX -= 0.05f;
-				_inc += 0.08f;
+				_speedX -= 5.0f;
+				_inc += 2.5f;
 			}
 			else {
 				_speedY += _inc;
-				_speedX -= 0.05f;
-				_inc += 0.08f;
+				_speedX -= 5.0f;
+				_inc += 2.5f;
 			}
 		}
 		
