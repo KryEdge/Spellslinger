@@ -31,7 +31,7 @@ namespace sSlinger {
 	void Mainframe::runProgram() {
 		initProgram();
 		Color ballColor = DARKBLUE;
-		bool FFreeze = false;
+		bool FFreezeBool = false;
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);
@@ -52,13 +52,15 @@ namespace sSlinger {
 			}
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 3) {
-				FFreeze = true;
+				FFreezeBool = true;
+				fFreeze = new FFreeze;
+
 			}
 
-			if (FFreeze) {
+			if (FFreezeBool) {
 				timer += 1 * GetFrameTime();
 				if (timer >= 2.5f) {
-					FFreeze = false;
+					FFreezeBool = false;
 					timer = 0;
 				}
 			}
