@@ -51,6 +51,9 @@
     <ClCompile Include="..\src\objects\spells\Vacuum.cpp">
       <Filter>src\objects\spells</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\spells\Shockgate.cpp">
+      <Filter>src\objects\spells</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="FFreeze.h" />
     <ClInclude Include="..\src\objects\spells\Vacuum.h">
+      <Filter>src\objects\spells</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\spells\Shockgate.h">
       <Filter>src\objects\spells</Filter>
     </ClInclude>
   </ItemGroup>

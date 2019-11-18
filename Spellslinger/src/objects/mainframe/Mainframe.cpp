@@ -1,5 +1,6 @@
 #include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
+#include"objects/spells/Shockgate.h"
 #include "objects/spells/Vacuum.h"
 
 
@@ -7,6 +8,7 @@ namespace sSlinger {
 	Player* player;
 	Enemy1* flyer;
 	Bullet* fireball;
+	Shockgate* shockgate;
 	FFreeze* fFreeze;
 	Vacuum* vacuum;
 	SpellManager* spellManager;
@@ -35,6 +37,7 @@ namespace sSlinger {
 		Color ballColor = DARKBLUE;
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
+		bool shockBool = false;
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);
@@ -55,17 +58,24 @@ namespace sSlinger {
 				fireball->vecBullet();
 			}
 
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 2) {
+				if(shockgate == NULL)shockgate = new Shockgate;
+				if(!shockgate->getActive()) shockgate->setMousePos1(GetMouseX(), GetMouseY());
+				shockgate->setTrigger(true);
+				shockgate->setMousePos2(GetMouseX(), GetMouseY());
+				shockBool = true;
+			}
+
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 3) {
 				FFreezeBool = true;
 				fFreeze = new FFreeze;
-
 			}
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 4) {
 				vacuum = new Vacuum;
 				vacuum->setTarget(Vector2{ static_cast<float>(GetMouseX()),static_cast<float>(GetMouseY()) });
 				vacuum->vecBullet();
 				vacuum->setTrigger(true);
-				vacuumBool = true;//ERROR CON EL GET TRIGGER DE VACUUM, SIGO CON EL BOOL LOCAL PARA NO ATRASARME
+				vacuumBool = true;
 			}
 
 			if (vacuumBool) {
@@ -79,6 +89,20 @@ namespace sSlinger {
 						flyer->moveToPoint(vacuum->getPos());
 					}
 				}
+			}
+
+			if (shockBool) {
+				DrawCircleV(shockgate->getMousePos1(), 20, YELLOW);
+				DrawCircleV(shockgate->getMousePos2(), 20, YELLOW);
+				DrawLineV(shockgate->getMousePos1(), shockgate->getMousePos2(), GOLD);
+
+				shockgate->increaseTimer(0.05);
+				if (shockgate->getTimer() > 6.0f) {
+					shockBool = false;
+					delete shockgate;
+					shockgate = NULL;
+				}
+
 			}
 
 			if (FFreezeBool) {

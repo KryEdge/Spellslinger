@@ -1,7 +1,7 @@
-#include "Shockgate.h"
+#include "objects/spells/Shockgate.h"
 
 Shockgate::Shockgate() {
-	_aoe = 150.0f;
+	_radius = 150.0f;
 	_trigger = false;
 	_target.x = GetMouseX();
 	_target.y = GetMouseY();
@@ -10,13 +10,17 @@ Shockgate::Shockgate() {
 	_timer = 0.0f;
 	_distance.x = NULL;
 	_distance.y = NULL;
+	_mousePos1.x = 0.0f;
+	_mousePos1.y = 0.0f;
+	_mousePos2.x = 0.0f;
+	_mousePos2.y = 0.0f;
 }
 Shockgate::~Shockgate() {
 
 }
 void Shockgate::effect() {
-	Color effectColor = WHITE;
-	DrawCircleV(getPos(), _aoe, Fade(effectColor, 0.2f));
+	Color effectColor = GOLD;
+	DrawCircleV(getPos(), _radius, Fade(effectColor, 0.2f));
 }
 void Shockgate::setTrigger(bool trigger) {
 	_trigger = trigger;
@@ -43,9 +47,23 @@ void Shockgate::setPos(Vector2 bulletPos) {
 void Shockgate::setTarget(Vector2 target) {
 	_target = target;
 }
+void Shockgate::setMousePos1(int mouseX, int mouseY) {
+	_mousePos1.x = static_cast<float>(mouseX);
+	_mousePos1.y = static_cast<float>(mouseY);
+}
+void Shockgate::setMousePos2(int mouseX, int mouseY) {
+	_mousePos2.x = static_cast<float>(mouseX);
+	_mousePos2.y = static_cast<float>(mouseY);
+}
+Vector2 Shockgate::getMousePos1() {
+	return _mousePos1;
+}
+Vector2 Shockgate::getMousePos2() {
+	return _mousePos2;
+}
 
 float Shockgate::getAoe() {
-	return _aoe;
+	return _radius;
 }
 void Shockgate::vecBullet() {
 	_distance.x = _target.x - _pos.x;

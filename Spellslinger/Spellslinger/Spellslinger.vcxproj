@@ -25,6 +25,7 @@
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
     <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp" />
+    <ClCompile Include="..\src\objects\spells\Shockgate.cpp" />
     <ClCompile Include="..\src\objects\spells\Vacuum.cpp" />
     <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h" />
+    <ClInclude Include="..\src\objects\spells\Shockgate.h" />
     <ClInclude Include="..\src\objects\spells\Vacuum.h" />
     <ClInclude Include="FFreeze.h" />
   </ItemGroup>
