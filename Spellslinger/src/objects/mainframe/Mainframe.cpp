@@ -92,12 +92,11 @@ namespace sSlinger {
 			}
 
 			if (shockBool) {
-				DrawCircleV(shockgate->getMousePos1(), 20, YELLOW);
-				DrawCircleV(shockgate->getMousePos2(), 20, YELLOW);
+				DrawCircleV(shockgate->getMousePos1(), 10, YELLOW);
+				DrawCircleV(shockgate->getMousePos2(), 10, YELLOW);
 				DrawLineV(shockgate->getMousePos1(), shockgate->getMousePos2(), GOLD);
-
 				shockgate->increaseTimer(0.05);
-				if (shockgate->getTimer() > 6.0f) {
+				if (shockgate->getTimer() > 12.0f) {
 					shockBool = false;
 					delete shockgate;
 					shockgate = NULL;
