@@ -9,7 +9,7 @@ Bullet::Bullet() {
 	_dmg = 20.0f;
 	_active = false;
 	_pos.x = 40.0f;
-	_pos.y = 430.0f;
+	_pos.y = 330.0f;
 	_distance.x = NULL;
 	_distance.y = NULL;
 }

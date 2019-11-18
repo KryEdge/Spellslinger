@@ -1,5 +1,6 @@
 #include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
+#include "objects/spells/Vacuum.h"
 
 
 namespace sSlinger {
@@ -7,6 +8,7 @@ namespace sSlinger {
 	Enemy1* flyer;
 	Bullet* fireball;
 	FFreeze* fFreeze;
+	Vacuum* vacuum;
 	SpellManager* spellManager;
 	static float timer = 0;
 
@@ -32,6 +34,7 @@ namespace sSlinger {
 		initProgram();
 		Color ballColor = DARKBLUE;
 		bool FFreezeBool = false;
+		bool vacuumBool = false;
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);
@@ -56,8 +59,29 @@ namespace sSlinger {
 				FFreezeBool = true;
 				fFreeze = new FFreeze;
 
+			}	
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 4) {
+				vacuum = new Vacuum;
+				vacuum->setTarget(Vector2{ static_cast<float>(GetMouseX()),static_cast<float>(GetMouseY()) });
+				vacuumBool = true;//ERROR CON EL GET TRIGGER DE VACUUM, SIGO CON EL BOOL LOCAL PARA NO ATRASARME
+				fireball = new Bullet;
+				fireball->setActive(true);
+				fireball->vecBullet();
 			}
 
+			if (vacuumBool) {
+				if (vacuum->getPos().x >= 220) {
+					vacuum->setPos(vacuum->getPos());
+					vacuum->effect();
+					vacuum->increaseTimer(0.05);	
+				}
+				else if(fireball != NULL)vacuum->setPos(fireball->getPos());
+
+				if (CheckCollisionCircles(vacuum->getPos(), vacuum->getAoe(), flyer->getPos(), 10)) {
+					flyer->setSpeed(0, 0);
+				}
+			}
+			
 			if (FFreezeBool) {
 				timer += 1 * GetFrameTime();
 				if (timer >= 2.5f) {
@@ -76,7 +100,14 @@ namespace sSlinger {
 						fireball = NULL;
 					}
 				}
+		
 			EndDrawing();
+			if(vacuum != NULL)
+				if (vacuum->getTimer() > 3.0f) {
+						vacuumBool = false;
+						delete vacuum;
+						vacuum = NULL;
+				}
 
 			if (fireball != NULL && flyer != NULL)
 				if (CheckCollisionCircles(flyer->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {

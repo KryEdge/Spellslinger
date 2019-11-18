@@ -6,6 +6,7 @@
 #include "objects/spells/bullet/Bullet.h"
 #include "logic/Spellmanager.h"
 #include "objects/spells/FFreeze/FFreeze.h"
+#include "objects/spells/Vacuum.h"
 
 
 namespace sSlinger {
@@ -25,8 +26,7 @@ namespace sSlinger {
 	extern Player* player;
 	extern Bullet* fireball;
 	extern FFreeze* fFreeze;
-
-
+	extern Vacuum* vacuum;
 }
 	
 #endif

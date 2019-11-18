@@ -25,6 +25,7 @@
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
     <ClCompile Include="..\src\objects\spells\bullet\Bullet.cpp" />
+    <ClCompile Include="..\src\objects\spells\Vacuum.cpp" />
     <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,13 +34,14 @@
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h" />
+    <ClInclude Include="..\src\objects\spells\Vacuum.h" />
     <ClInclude Include="FFreeze.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{B62A2249-3852-4083-ABF8-2F560A95C659}</ProjectGuid>
     <RootNamespace>Spellslinger</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
