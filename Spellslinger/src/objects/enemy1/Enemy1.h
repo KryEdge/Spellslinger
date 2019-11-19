@@ -14,6 +14,7 @@ namespace sSlinger {
 		float _timer;
 		bool _shocked;
 		bool _frozen;
+		Texture2D _sprite;
 	public:
 		Enemy1();
 		~Enemy1();
@@ -29,6 +30,7 @@ namespace sSlinger {
 		bool getShocked();
 		void setShocked(bool set);
 		void setFrozen(bool set);
+		void draw();
 	};
 
 

@@ -8,6 +8,7 @@
 #include "logic/Spellmanager.h"
 #include "objects/spells/FFreeze/FFreeze.h"
 #include "objects/spells/Vacuum.h"
+#include "logic/Scenes.h"
 
 
 namespace sSlinger {
