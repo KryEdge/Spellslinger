@@ -17,7 +17,6 @@ namespace sSlinger {
 	Mainframe::Mainframe() {
 		_winWidth = 800;
 		_winHeight = 450;
-
 	}
 	Mainframe::~Mainframe() {
 
@@ -25,6 +24,7 @@ namespace sSlinger {
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
+		SetTargetFPS(60);
 		player = new Player();
 		SetTargetFPS(60);
 		for (int i = 0; i < E1MAX; i++) {
@@ -36,11 +36,12 @@ namespace sSlinger {
 	}
 
 	void Mainframe::runProgram() {
-		initProgram();
+		
 		Color ballColor = RED;
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
 		bool shockBool = false;
+
 		while (!WindowShouldClose()) {
 			BeginDrawing();
 			ClearBackground(BLACK);

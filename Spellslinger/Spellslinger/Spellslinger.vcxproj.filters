@@ -54,6 +54,12 @@
     <ClCompile Include="..\src\objects\spells\Shockgate.cpp">
       <Filter>src\objects\spells</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\logic\Scenes.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\logic\MagicNumbers.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\spells\Shockgate.h">
       <Filter>src\objects\spells</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\logic\Scenes.h">
+      <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\logic\MagicNumbers.h">
+      <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

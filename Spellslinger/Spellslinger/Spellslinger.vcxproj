@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\logic\MagicNumbers.cpp" />
     <ClCompile Include="..\src\logic\Main.cpp" />
+    <ClCompile Include="..\src\logic\Scenes.cpp" />
     <ClCompile Include="..\src\logic\Spellmanager.cpp" />
     <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp" />
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
@@ -30,6 +32,8 @@
     <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\logic\MagicNumbers.h" />
+    <ClInclude Include="..\src\logic\Scenes.h" />
     <ClInclude Include="..\src\logic\Spellmanager.h" />
     <ClInclude Include="..\src\objects\enemy1\Enemy1.h" />
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
