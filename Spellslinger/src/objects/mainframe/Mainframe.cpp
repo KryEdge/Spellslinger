@@ -51,7 +51,9 @@ namespace sSlinger {
 			for (int i = 0; i < E1MAX; i++) {
 				if (flyer[i] != NULL) {
 					DrawCircleV(flyer[i]->getPos(), 10, YELLOW);
-					flyer[i]->movement();
+					if (!FFreezeBool) {
+						flyer[i]->movement();
+					}
 				}
 			}
 
@@ -104,7 +106,8 @@ namespace sSlinger {
 				if (shockBool) {
 					DrawCircleV(shockgate->getMousePos1(), 10, YELLOW);
 					DrawCircleV(shockgate->getMousePos2(), 10, YELLOW);
-					DrawLineV(shockgate->getMousePos1(), shockgate->getMousePos2(), GOLD);
+					DrawTriangle(shockgate->getMousePos1(), shockgate->getMousePos2(), 
+					Vector2{ shockgate->getMousePos2().x + 2,shockgate->getMousePos2().y + 2 }, GOLD);
 					shockgate->increaseTimer(0.05);
 					if (shockgate->getTimer() > 12.0f) {
 						shockBool = false;
@@ -145,6 +148,22 @@ namespace sSlinger {
 						delete vacuum;
 						vacuum = NULL;
 					}
+				for (size_t i = 0; i < E1MAX; i++)
+				{
+					if (shockgate != NULL)
+						if (CheckCollisionPointTriangle(flyer[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
+							Vector2{ shockgate->getMousePos1().x + 10,shockgate->getMousePos1().y + 10 })) {
+							flyer[i]->setShocked(true);
+						}
+					if (flyer[i]->getShocked()) {
+						flyer[i]->increaseTimer(0.05);
+						if (flyer[i]->getTimer() > 15.0) {
+							flyer[i]->setShocked(false);
+						}
+					}
+				}
+				
+
 
 				if (fireball != NULL && flyer[0] != NULL)
 					if (CheckCollisionCircles(flyer[0]->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
