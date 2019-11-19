@@ -1,5 +1,6 @@
 #ifndef MAINFRAME_H
 #define MAINFRAME_H
+#define E1MAX 50
 #include "raylib.h"
 #include "objects/player/Player.h"
 #include "objects/enemy1/Enemy1.h"
@@ -27,6 +28,7 @@ namespace sSlinger {
 	extern Bullet* fireball;
 	extern FFreeze* fFreeze;
 	extern Vacuum* vacuum;
+	extern Enemy1* flyer[E1MAX];
 }
 	
 #endif
