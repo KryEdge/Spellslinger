@@ -11,6 +11,9 @@ namespace sSlinger {
 		float _speedY;
 		float _speedX;
 		float _inc;
+		float _timer;
+		bool _shocked;
+		bool _frozen;
 	public:
 		Enemy1();
 		~Enemy1();
@@ -20,7 +23,12 @@ namespace sSlinger {
 		void movement();
 		float getSpeedX();
 		float getSpeedY();
+		float getTimer();
+		void increaseTimer(float increase);
 		void moveToPoint(Vector2 Point);
+		bool getShocked();
+		void setShocked(bool set);
+		void setFrozen(bool set);
 	};
 
 
