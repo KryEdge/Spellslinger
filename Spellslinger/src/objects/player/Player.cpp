@@ -13,7 +13,7 @@ namespace sSlinger {
 		_lives = 8;
 	}
 	Player::~Player(){
-
+		UnloadTexture(_sprite);
 	}
 	Rectangle Player::getRec() {
 		return _rec;

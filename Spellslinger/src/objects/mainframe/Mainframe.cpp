@@ -14,17 +14,19 @@ namespace sSlinger {
 	SpellManager* spellManager;
 	static float timer = 0;
 
+
 	Mainframe::Mainframe() {
 		_winWidth = 800;
 		_winHeight = 450;
 	}
 	Mainframe::~Mainframe() {
-
+		UnloadTexture(_background);
 	}
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
 		SetTargetFPS(60);
+		_background = LoadTexture("../res/Assets/background.png");
 		player = new Player();
 		SetTargetFPS(60);
 		for (int i = 0; i < E1MAX; i++) {
@@ -46,6 +48,7 @@ namespace sSlinger {
 		while (_gameBool) {
 			BeginDrawing();
 			ClearBackground(BLACK);
+			DrawTexture(_background, 0, 0, WHITE);
 			player->draw();
 			DrawRectangle(player->getRec().x - 30, player->getRec().y + 20, 60, 40, SKYBLUE);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);

@@ -19,6 +19,7 @@ namespace sSlinger {
 		int _winWidth;
 		int _winHeight;
 		bool _gameBool;
+		Texture2D _background;
 	public:
 		Mainframe();
 		~Mainframe();
