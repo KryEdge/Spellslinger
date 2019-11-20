@@ -18,11 +18,13 @@ namespace sSlinger {
 	private:
 		int _winWidth;
 		int _winHeight;
+		bool _gameBool;
 	public:
 		Mainframe();
 		~Mainframe();
 		void initProgram();
 		void runProgram();
+		void setGameBool(bool result);
 	};
 
 	extern Player* player;
