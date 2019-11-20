@@ -5,8 +5,8 @@ namespace sSlinger{
 	SpellManager::SpellManager() {
 		_mouseColor = RED;
 		_spellButton[4];
-		_selectedSpell = { 10,10,50,50 };
-		_buttonSize = { 50,50 };
+		_selectedSpell = { 10,10,30,30 };
+		_buttonSize = { 30,30 };
 		_elementSelected = 1;
 	}
 	void SpellManager::initializeButtons() {
@@ -16,7 +16,7 @@ namespace sSlinger{
 				_spellButton[i].x = 10;
 			}
 			else {
-				_spellButton[i].x = _spellButton[i - 1].x + 70;
+				_spellButton[i].x = _spellButton[i - 1].x + 40;
 			}
 			_spellButton[i].y = 10;
 		}
@@ -35,7 +35,7 @@ namespace sSlinger{
 			DrawRectangleV(_spellButton[1], _buttonSize, WHITE);
 			DrawRectangleV(_spellButton[2], _buttonSize, WHITE);
 			DrawRectangleV(_spellButton[3], _buttonSize, WHITE);
-			DrawRectangleLinesEx(_selectedSpell, 10, _mouseColor);
+			DrawRectangleLinesEx(_selectedSpell, 5, _mouseColor);
 		}
 
 		if (IsKeyPressed(KEY_Q) || IsKeyPressed(KEY_ONE)) {
@@ -45,17 +45,17 @@ namespace sSlinger{
 		}		
 		if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_TWO)) {
 			_mouseColor = YELLOW;
-			_selectedSpell.x = 80;
+			_selectedSpell.x = 50;
 			_elementSelected = 2;
 		}		
 		if (IsKeyPressed(KEY_E) || IsKeyPressed(KEY_THREE)) {
 			_mouseColor = SKYBLUE;
-			_selectedSpell.x = 150;
+			_selectedSpell.x = 90;
 			_elementSelected = 3;
 		}	
 		if (IsKeyPressed(KEY_R) || IsKeyPressed(KEY_FOUR)) {
 			_mouseColor = LIGHTGRAY;
-			_selectedSpell.x = 220;
+			_selectedSpell.x = 130;
 			_elementSelected = 4;
 		}
 	}

@@ -4,8 +4,8 @@ namespace sSlinger {
 	Enemy1::Enemy1(){
 		_winWidth = 810;
 		_winHeight = 450;
-		_pos.x = _winWidth;
-		_pos.y = _winHeight / 2;
+		_pos.x = GetRandomValue(_winWidth,_winWidth+50);
+		_pos.y = GetRandomValue(_winHeight/2-50,_winHeight/2+50);
 		_life = 20;
 		_speedY = 125.0f;
 		_speedX = 155.0f;
@@ -16,6 +16,7 @@ namespace sSlinger {
 		_sprite = LoadTexture("../res/Assets/Flyer_Float.png");
 		_sprite.height *= 2.2;
 		_sprite.width *= 2.2;
+		_startPoint = _pos.y;
 	}
 	Enemy1::~Enemy1(){
 		UnloadTexture(_sprite);
@@ -33,17 +34,17 @@ namespace sSlinger {
 			_pos.y += _speedY * GetFrameTime();
 		}
 
-		if (_pos.y >= 280) {
+		if (_pos.y >= _startPoint+70) {
 			if (!_shocked) { _speedY = -125.0; _speedX = 155.0;}
 			else { _speedY = -62.5; _speedX = 75.0;}
 			_inc = 10.05f;
 		}
-		else if (_pos.y <= 155) {
+		else if (_pos.y <= _startPoint-70) {
 			if (!_shocked) { _speedY = 125.0; _speedX = 155.0; }
 			else { _speedY = 62.5; _speedX = 75.0;	}
 			_inc = 10.05f;
 		}
-		else if (_pos.y > 155 && _pos.y < 280) {
+		else if (_pos.y > _startPoint - 70 && _pos.y < _startPoint + 70) {
 			if (_speedY < 0) {
 				_speedY -= _inc;
 				_inc += 2.5f;

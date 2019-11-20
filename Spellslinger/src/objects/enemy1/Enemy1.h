@@ -15,6 +15,7 @@ namespace sSlinger {
 		bool _shocked;
 		bool _frozen;
 		Texture2D _sprite;
+		int _startPoint;
 	public:
 		Enemy1();
 		~Enemy1();

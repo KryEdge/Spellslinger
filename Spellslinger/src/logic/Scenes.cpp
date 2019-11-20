@@ -47,7 +47,7 @@ void menuScene() {
 
 		EndDrawing();
 
-		if (CheckCollisionPointRec(GetMousePosition(), playButton) && IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+		if (CheckCollisionPointRec(GetMousePosition(), playButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
 			menuBool = false;
 			scenes = gameplay;
 		}
