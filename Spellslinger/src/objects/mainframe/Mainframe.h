@@ -8,7 +8,9 @@
 #include "logic/Spellmanager.h"
 #include "objects/spells/FFreeze/FFreeze.h"
 #include "objects/spells/Vacuum.h"
+#include "objects/spells/Shockgate.h"
 #include "logic/Scenes.h"
+#include "logic/TextureManager.h"
 
 
 namespace sSlinger {
@@ -17,7 +19,6 @@ namespace sSlinger {
 		int _winWidth;
 		int _winHeight;
 		bool _gameBool;
-		Texture2D _background;
 		Rectangle _floor;
 	public:
 		Mainframe();

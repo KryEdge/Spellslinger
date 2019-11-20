@@ -13,13 +13,9 @@ namespace sSlinger {
 		_timer = 0.0f;
 		_shocked = false;
 		_frozen = false;
-		_sprite = LoadTexture("../res/Assets/Flyer_Float.png");
-		_sprite.height *= 2.2;
-		_sprite.width *= 2.2;
 		_startPoint = _pos.y;
 	}
 	Enemy1::~Enemy1(){
-		UnloadTexture(_sprite);
 	}
 
 	void Enemy1::setLife(int life){
@@ -98,6 +94,6 @@ namespace sSlinger {
 		_frozen = set;
 	}
 	void Enemy1::draw() {
-		DrawTexture(_sprite, _pos.x - _sprite.width / 2, _pos.y - _sprite.height / 2, WHITE);
+		DrawTexture(TextureManager::getGhostSprite() , _pos.x - TextureManager::getGhostSprite().width / 2, _pos.y - TextureManager::getGhostSprite().height / 2, WHITE);
 	}
 }

@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "logic/TextureManager.h"
 
 namespace sSlinger {
 	class Player {
@@ -6,7 +7,6 @@ namespace sSlinger {
 		Color _color;
 		Rectangle _rec;
 		int _lives;
-		Texture2D _sprite;
 	public:
 		Player();
 		~Player();

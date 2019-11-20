@@ -1,15 +1,18 @@
 #pragma once
-
+#include "raylib.h"
 
 namespace sSlinger {
 	class TextureManager {
 	private:
-		Texture2D _ghostSprite;
-		Texture2D _playerSprite;
-		Texture2D _background;
-
+		static Texture2D _ghostSprite;
+		static Texture2D _playerSprite;
+		static Texture2D _background;
 	public:
-		void loadTextures();
+		static void loadTextures();
+		static void unloadTextures();
+		static Texture2D getGhostSprite();
+		static Texture2D getPlayerSprite();
+		static Texture2D getBackground();
 	};
 }
 	

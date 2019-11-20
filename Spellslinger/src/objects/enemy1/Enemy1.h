@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "logic/TextureManager.h"
 
 namespace sSlinger {
 	class Enemy1{
@@ -14,7 +15,6 @@ namespace sSlinger {
 		float _timer;
 		bool _shocked;
 		bool _frozen;
-		Texture2D _sprite;
 		int _startPoint;
 	public:
 		Enemy1();

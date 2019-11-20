@@ -1,7 +1,5 @@
 #include "objects/mainframe/Mainframe.h"
 #include "raylib.h"
-#include"objects/spells/Shockgate.h"
-#include "objects/spells/Vacuum.h"
 
 
 namespace sSlinger {
@@ -14,20 +12,18 @@ namespace sSlinger {
 	SpellManager* spellManager;
 	static float timer = 0;
 	
-
 	Mainframe::Mainframe() {
 		_winWidth = 800;
 		_winHeight = 450;
-		_floor = { 0,_winHeight,_winWidth,10 };
+		_floor = { 0.0f,static_cast<float>(_winHeight),static_cast<float>(_winWidth),10.0f };
 	}
 	Mainframe::~Mainframe() {
-		UnloadTexture(_background);
+
 	}
 
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
 		SetTargetFPS(60);
-		_background = LoadTexture("../res/Assets/background.png");
 		player = new Player();
 		SetTargetFPS(60);
 		for (int i = 0; i < E1MAX; i++) {
@@ -45,11 +41,12 @@ namespace sSlinger {
 		bool vacuumBool = false;
 		bool shockBool = false;
 		_gameBool = true;
+		TextureManager::loadTextures();
 
 		while (_gameBool) {
 			BeginDrawing();
 			ClearBackground(BLACK);
-			DrawTexture(_background, 0, 0, WHITE);
+			DrawTexture(TextureManager::getBackground(), 0, 0, WHITE);
 			DrawRectangleRec(_floor, RED);
 			player->draw();
 			DrawRectangle(player->getRec().x - 30, player->getRec().y + 20, 60, 40, SKYBLUE);
