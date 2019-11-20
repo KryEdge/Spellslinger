@@ -12,14 +12,13 @@
 
 
 namespace sSlinger {
-
-
 	class Mainframe {
 	private:
 		int _winWidth;
 		int _winHeight;
 		bool _gameBool;
 		Texture2D _background;
+		Rectangle _floor;
 	public:
 		Mainframe();
 		~Mainframe();

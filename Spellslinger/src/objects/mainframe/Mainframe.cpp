@@ -13,11 +13,12 @@ namespace sSlinger {
 	Vacuum* vacuum;
 	SpellManager* spellManager;
 	static float timer = 0;
-
+	
 
 	Mainframe::Mainframe() {
 		_winWidth = 800;
 		_winHeight = 450;
+		_floor = { 0,_winHeight,_winWidth,10 };
 	}
 	Mainframe::~Mainframe() {
 		UnloadTexture(_background);
@@ -49,6 +50,7 @@ namespace sSlinger {
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawTexture(_background, 0, 0, WHITE);
+			DrawRectangleRec(_floor, RED);
 			player->draw();
 			DrawRectangle(player->getRec().x - 30, player->getRec().y + 20, 60, 40, SKYBLUE);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
@@ -88,8 +90,6 @@ namespace sSlinger {
 				vacuum->setTrigger(true);
 				vacuumBool = true;
 			}
-
-
 
 			if (vacuumBool) {
 				if (vacuum->getPos().x >= vacuum->getTarget().x || vacuum->getPos().y <= vacuum->getTarget().y || IsMouseButtonReleased(MOUSE_RIGHT_BUTTON) && spellManager->getSelected() == 4) {
@@ -139,6 +139,7 @@ namespace sSlinger {
 						fireball = NULL;
 					}
 				}
+
 			if (vacuum != NULL)
 				if (vacuum->getActive()) {
 					vacuum->moveBullet();
@@ -146,12 +147,14 @@ namespace sSlinger {
 				}
 
 			EndDrawing();
+
 			if (vacuum != NULL)
 				if (vacuum->getTimer() > 6.0f) {
 					vacuumBool = false;
 					delete vacuum;
 					vacuum = NULL;
 				}
+
 			for (size_t i = 0; i < E1MAX; i++)
 			{
 				if (shockgate != NULL)
@@ -168,6 +171,7 @@ namespace sSlinger {
 					}
 				}
 			}
+
 			for (size_t i = 0; i < E1MAX; i++) {
 				if (fireball != NULL && flyer[i] != NULL)
 					if (CheckCollisionCircles(flyer[i]->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
@@ -178,7 +182,6 @@ namespace sSlinger {
 						flyer[i] = new Enemy1;
 					}
 			}
-
 
 			for (size_t i = 0; i < E1MAX; i++) {
 				if (flyer[i]->getPos().x < 0 && flyer[i] != NULL) {

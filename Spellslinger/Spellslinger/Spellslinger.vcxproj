@@ -23,6 +23,7 @@
     <ClCompile Include="..\src\logic\Main.cpp" />
     <ClCompile Include="..\src\logic\Scenes.cpp" />
     <ClCompile Include="..\src\logic\Spellmanager.cpp" />
+    <ClCompile Include="..\src\logic\TextureManager.cpp" />
     <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp" />
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp" />
     <ClCompile Include="..\src\objects\player\Player.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="..\src\logic\MagicNumbers.h" />
     <ClInclude Include="..\src\logic\Scenes.h" />
     <ClInclude Include="..\src\logic\Spellmanager.h" />
+    <ClInclude Include="..\src\logic\TextureManager.h" />
     <ClInclude Include="..\src\objects\enemy1\Enemy1.h" />
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h" />
     <ClInclude Include="..\src\objects\player\Player.h" />
