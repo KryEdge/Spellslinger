@@ -41,8 +41,9 @@ namespace sSlinger {
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
 		bool shockBool = false;
+		_gameBool = true;
 
-		while (!WindowShouldClose()) {
+		while (_gameBool) {
 			BeginDrawing();
 			ClearBackground(BLACK);
 			player->draw();
@@ -183,10 +184,16 @@ namespace sSlinger {
 					flyer[i] = new Enemy1;
 				}
 			}
-			if (IsKeyReleased(KEY_P))
-				pauseScene();
+			if (IsKeyReleased(KEY_P)) {
+				if (pauseScene() == 1);
+					setGameBool(false);	
+			}
 		}
-		CloseWindow();
+	
+	}
+
+	void Mainframe::setGameBool(bool result) {
+		_gameBool = result;
 	}
 }
 

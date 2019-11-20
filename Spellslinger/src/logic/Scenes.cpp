@@ -95,7 +95,7 @@ void creditScene() {
 		}
 	}
 }
-void pauseScene() {
+int pauseScene() {
 	bool pauseBool = true;
 	Rectangle resumeButton;
 	resumeButton.x = menuPlayTextX;
@@ -129,6 +129,7 @@ void pauseScene() {
 		if (CheckCollisionPointRec(GetMousePosition(), menuButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
 			pauseBool = false;
 			scenes = menu;
+			return 1;
 		}
 	}
 }

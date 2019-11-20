@@ -14,4 +14,4 @@ extern Scenes scenes;
 
 void menuScene();
 void creditScene();
-void pauseScene();
+int pauseScene();
