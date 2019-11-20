@@ -11,6 +11,7 @@ namespace sSlinger {
 		Rectangle _selectedSpell;
 		Vector2 _buttonSize;
 
+
 	public:
 		SpellManager();
 		void initializeButtons();
