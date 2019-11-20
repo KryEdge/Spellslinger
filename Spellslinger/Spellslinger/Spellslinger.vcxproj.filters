@@ -60,6 +60,9 @@
     <ClCompile Include="..\src\logic\MagicNumbers.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\logic\TextureManager.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -88,6 +91,9 @@
       <Filter>src\logic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\logic\MagicNumbers.h">
+      <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\logic\TextureManager.h">
       <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
