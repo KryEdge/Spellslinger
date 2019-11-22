@@ -6,6 +6,7 @@ namespace sSlinger {
 	Player* player;
 	Enemy1* flyer[E1MAX];
 	Bullet* fireball;
+	Crawler* crawler;
 	Shockgate* shockgate;
 	FFreeze* fFreeze;
 	Vacuum* vacuum;
@@ -30,6 +31,7 @@ namespace sSlinger {
 			flyer[i] = NULL;
 			flyer[i] = new Enemy1;
 		}
+		crawler = new Crawler();
 		spellManager = new SpellManager;
 		spellManager->initializeButtons();
 	}
@@ -54,12 +56,17 @@ namespace sSlinger {
 			DrawText(FormatText("v 0.1.5"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
 			for (int i = 0; i < E1MAX; i++) {
 				if (flyer[i] != NULL) {
-					if (!FFreezeBool) {
+					if (!FFreezeBool) {//NO ES REDUNDANTE ESTO CON EL CHEQUEO DE FREEZE QUE TIENE EL MOVEMENT?
 						flyer[i]->movement();
 					}
 					flyer[i]->draw();
 				}
 			}
+			if (crawler != NULL) {
+				crawler->draw();
+				crawler->movement();
+			}
+	
 			spellManager->spellmanager();
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 1) {
@@ -100,6 +107,7 @@ namespace sSlinger {
 								flyer[i]->moveToPoint(vacuum->getPos());
 							}
 						}
+					crawler->moveToPoint(vacuum->getPos());
 				}
 			}
 
@@ -107,8 +115,7 @@ namespace sSlinger {
 				DrawCircleV(shockgate->getMousePos1(), 10, YELLOW);
 				DrawCircleV(shockgate->getMousePos2(), 10, YELLOW);
 				DrawTriangle(shockgate->getMousePos1(), shockgate->getMousePos2(),
-
-					Vector2{ shockgate->getMousePos2().x + 2,shockgate->getMousePos2().y + 2 }, GOLD);
+				Vector2{ shockgate->getMousePos2().x + 2,shockgate->getMousePos2().y + 2 }, GOLD);
 				shockgate->increaseTimer(0.05);
 				if (shockgate->getTimer() > 12.0f) {
 					shockBool = false;
@@ -154,17 +161,30 @@ namespace sSlinger {
 
 			for (size_t i = 0; i < E1MAX; i++)
 			{
-				if (shockgate != NULL)
+				if (shockgate != NULL)//HAY QUE MEJORAR ESTE CHEQUEO HORRENDO, DESPUES HAGO UNA FUNCION
 					if (CheckCollisionPointTriangle(flyer[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
 						Vector2{ shockgate->getMousePos1().x + 10,shockgate->getMousePos1().y + 10 }) ||
 						CheckCollisionPointTriangle(flyer[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
-							Vector2{ shockgate->getMousePos2().x + 10,shockgate->getMousePos2().y + 10 })) {
+						Vector2{ shockgate->getMousePos2().x + 10,shockgate->getMousePos2().y + 10 }) ||
+						CheckCollisionPointTriangle(crawler->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
+						Vector2{ shockgate->getMousePos1().x + 10,shockgate->getMousePos1().y + 10 }) ||
+						CheckCollisionPointTriangle(crawler->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
+						Vector2{ shockgate->getMousePos2().x + 10,shockgate->getMousePos2().y + 10 })
+						) {
 						flyer[i]->setShocked(true);
+						crawler->setShocked(true);
 					}
+
 				if (flyer[i]->getShocked()) {
 					flyer[i]->increaseTimer(0.05);
 					if (flyer[i]->getTimer() > 15.0) {
 						flyer[i]->setShocked(false);
+					}
+				}
+				if (crawler->getShocked()) {
+					crawler->increaseTimer(0.05);
+					if (crawler->getTimer() > 15.0) {
+						crawler->setShocked(false);
 					}
 				}
 			}
@@ -178,6 +198,16 @@ namespace sSlinger {
 						flyer[i] = NULL;
 						flyer[i] = new Enemy1;
 					}
+
+			}
+			if (fireball != NULL && crawler != NULL) {
+				if (CheckCollisionCircles(crawler->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
+					delete fireball;
+					fireball = NULL;
+					delete crawler;
+					crawler = NULL;
+					crawler = new Crawler;
+				}
 			}
 
 			for (size_t i = 0; i < E1MAX; i++) {

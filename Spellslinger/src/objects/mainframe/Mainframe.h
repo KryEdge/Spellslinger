@@ -3,7 +3,8 @@
 #define E1MAX 50
 #include "raylib.h"
 #include "objects/player/Player.h"
-#include "objects/enemy1/Enemy1.h"
+#include "objects/enemies/Enemy1.h"
+#include "objects/enemies/Crawler.h"
 #include "objects/spells/bullet/Bullet.h"
 #include "logic/Spellmanager.h"
 #include "objects/spells/FFreeze/FFreeze.h"

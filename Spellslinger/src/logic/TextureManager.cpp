@@ -4,6 +4,7 @@
 namespace sSlinger {
 
 	Texture2D TextureManager::_ghostSprite = Texture2D();	
+	Texture2D TextureManager::_crawlerSprite = Texture2D();	
 	Texture2D TextureManager::_playerSprite = Texture2D();	
 	Texture2D TextureManager::_background = Texture2D();
 
@@ -11,6 +12,9 @@ namespace sSlinger {
 		_ghostSprite = LoadTexture("../res/Assets/Flyer_Float.png");
 		_ghostSprite.height *= 2.2;
 		_ghostSprite.width *= 2.2;
+		_crawlerSprite = LoadTexture("../res/Assets/Crawler_Crawl.png");
+		_crawlerSprite.height *= 2.2;
+		_crawlerSprite.width *= 2.2;
 		_playerSprite = LoadTexture("../res/Assets/mage-1.png");
 		_playerSprite.height /= 5;
 		_playerSprite.width /= 5;
@@ -19,12 +23,18 @@ namespace sSlinger {
 
 	void TextureManager::unloadTextures() {
 		UnloadTexture(_ghostSprite);
+		UnloadTexture(_crawlerSprite);
 		UnloadTexture(_playerSprite);
 		UnloadTexture(_background);
 	}
 
 	Texture2D TextureManager::getGhostSprite() {
 		return _ghostSprite;
+
+	}	
+	
+	Texture2D TextureManager::getCrawlerSprite() {
+		return _crawlerSprite;
 	}
 
 	Texture2D TextureManager::getPlayerSprite() {

@@ -16,14 +16,14 @@
     <Filter Include="src\objects\mainframe">
       <UniqueIdentifier>{b3d3f4bf-3a26-4999-9b60-a28f559e930e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\objects\enemy1">
-      <UniqueIdentifier>{ff8c2663-06eb-448f-8888-cda11e80e8b5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\objects\spells">
       <UniqueIdentifier>{204548e4-0835-4d2d-9cff-d026400b2034}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\objects\spells\bullet">
       <UniqueIdentifier>{0ecb988a-7aa1-4c50-8d3d-d47d98170447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\enemies">
+      <UniqueIdentifier>{ff8c2663-06eb-448f-8888-cda11e80e8b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -32,9 +32,6 @@
     </ClCompile>
     <ClCompile Include="..\src\objects\mainframe\Mainframe.cpp">
       <Filter>src\objects\mainframe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\objects\enemy1\Enemy1.cpp">
-      <Filter>src\objects\enemy1</Filter>
     </ClCompile>
     <ClCompile Include="..\src\objects\player\Player.cpp">
       <Filter>src\objects\player</Filter>
@@ -63,6 +60,12 @@
     <ClCompile Include="..\src\logic\TextureManager.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\enemies\Crawler.cpp">
+      <Filter>src\objects\enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objects\enemies\Enemy1.cpp">
+      <Filter>src\objects\enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -70,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\mainframe\Mainframe.h">
       <Filter>src\objects\mainframe</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\objects\enemy1\Enemy1.h">
-      <Filter>src\objects\enemy1</Filter>
     </ClInclude>
     <ClInclude Include="..\src\objects\spells\bullet\Bullet.h">
       <Filter>src\objects\spells\bullet</Filter>
@@ -95,6 +95,12 @@
     </ClInclude>
     <ClInclude Include="..\src\logic\TextureManager.h">
       <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\enemies\Crawler.h">
+      <Filter>src\objects\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\enemies\Enemy1.h">
+      <Filter>src\objects\enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-#include "objects/enemy1/Enemy1.h"
+#include "objects/enemies/Enemy1.h"
 
 namespace sSlinger {
 	Enemy1::Enemy1(){
@@ -21,7 +21,7 @@ namespace sSlinger {
 	void Enemy1::setLife(int life){
 		_life = life;
 	}
-	Vector2 Enemy1::getPos() {
+	Vector2 Enemy1::getPos() { 
 		return _pos;
 	}
 	void Enemy1::movement() {
@@ -96,4 +96,5 @@ namespace sSlinger {
 	void Enemy1::draw() {
 		DrawTexture(TextureManager::getGhostSprite() , _pos.x - TextureManager::getGhostSprite().width / 2, _pos.y - TextureManager::getGhostSprite().height / 2, WHITE);
 	}
+
 }
