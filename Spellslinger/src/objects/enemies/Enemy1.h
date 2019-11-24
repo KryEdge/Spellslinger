@@ -17,7 +17,9 @@ namespace sSlinger {
 		bool _shocked;
 		bool _frozen;
 		int _startPoint;
+		bool _active;
 	public:
+		static int ID;
 		Enemy1();
 		~Enemy1();
 		void setLife(int life);
@@ -33,6 +35,8 @@ namespace sSlinger {
 		void setShocked(bool set);
 		void setFrozen(bool set);
 		void draw();
+		bool getActive();
+		void setActive(bool active);
 	};
 
 

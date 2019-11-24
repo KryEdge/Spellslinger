@@ -27,6 +27,7 @@ namespace sSlinger {
 		void initProgram();
 		void runProgram();
 		void setGameBool(bool result);
+		void enemyManager();
 	};
 
 	extern Player* player;
@@ -34,6 +35,7 @@ namespace sSlinger {
 	extern FFreeze* fFreeze;
 	extern Vacuum* vacuum;
 	extern Enemy1* flyer[E1MAX];
+	extern Crawler* crawler[E1MAX];
 }
 	
 #endif

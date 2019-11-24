@@ -98,7 +98,7 @@ void menuScene() {
 		if(controlsBool)
 			controlsScene();
 
-		DrawText(FormatText("v 0.2"), GetScreenWidth() - 50, 1, 20, WHITE);
+		DrawText(FormatText("v 0.3"), GetScreenWidth() - 50, 1, 20, WHITE);
 
 		EndDrawing();
 

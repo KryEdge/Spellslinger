@@ -1,7 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "logic/TextureManager.h"
-#include "objects/mainframe/Mainframe.h"
+
 
 namespace sSlinger {
 	class Crawler {
@@ -16,7 +16,10 @@ namespace sSlinger {
 		bool _shocked;
 		bool _frozen;
 		int _startPoint;
+		bool _active;
+		int _ID;
 	public:
+		static int ID;
 		Crawler();
 		~Crawler();
 		void setLife(int life);
@@ -31,6 +34,8 @@ namespace sSlinger {
 		bool getShocked();
 		void setShocked(bool set);
 		void setFrozen(bool set);
+		bool getActive();
+		void setActive(bool active);
 		void draw();
 	};
 

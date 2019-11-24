@@ -14,8 +14,11 @@ namespace sSlinger {
 		_shocked = false;
 		_frozen = false;
 		_startPoint = _pos.y;
+		_active = false;
+		ID++;
 	}
 	Enemy1::~Enemy1(){
+		ID--;
 	}
 
 	void Enemy1::setLife(int life){
@@ -95,6 +98,12 @@ namespace sSlinger {
 	}
 	void Enemy1::draw() {
 		DrawTexture(TextureManager::getGhostSprite() , _pos.x - TextureManager::getGhostSprite().width / 2, _pos.y - TextureManager::getGhostSprite().height / 2, WHITE);
+	}
+	bool Enemy1::getActive() {
+		return _active;
+	}
+	void Enemy1::setActive(bool active) {
+		_active = active;
 	}
 
 }

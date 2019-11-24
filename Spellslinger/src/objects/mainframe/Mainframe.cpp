@@ -5,13 +5,16 @@
 namespace sSlinger {
 	Player* player;
 	Enemy1* flyer[E1MAX];
+	Crawler* crawler[E1MAX];
 	Bullet* fireball;
-	Crawler* crawler;
 	Shockgate* shockgate;
 	FFreeze* fFreeze;
 	Vacuum* vacuum;
 	SpellManager* spellManager;
 	static float timer = 0;
+	int Crawler::ID = 0;
+	int Enemy1::ID = 0;
+
 	
 	Mainframe::Mainframe() {
 		_winWidth = 800;
@@ -30,8 +33,9 @@ namespace sSlinger {
 		for (int i = 0; i < E1MAX; i++) {
 			flyer[i] = NULL;
 			flyer[i] = new Enemy1;
+			crawler[i] = NULL;
+			crawler[i] = new Crawler();
 		}
-		crawler = new Crawler();
 		spellManager = new SpellManager;
 		spellManager->initializeButtons();
 	}
@@ -46,6 +50,7 @@ namespace sSlinger {
 		TextureManager::loadTextures();
 
 		while (_gameBool) {
+			HideCursor();
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawTexture(TextureManager::getBackground(), 0, 0, WHITE);
@@ -53,20 +58,27 @@ namespace sSlinger {
 			player->draw();
 			DrawRectangle(player->getRec().x - 30, player->getRec().y + 20, 60, 40, SKYBLUE);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
-			DrawText(FormatText("v 0.1.5"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
+			DrawText(FormatText("v 0.3"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
+
+			enemyManager();
 			for (int i = 0; i < E1MAX; i++) {
-				if (flyer[i] != NULL) {
-					if (!FFreezeBool) {//NO ES REDUNDANTE ESTO CON EL CHEQUEO DE FREEZE QUE TIENE EL MOVEMENT?
+				if (flyer[i] != NULL && flyer[i]->getActive()) {
+					if (!FFreezeBool) {
 						flyer[i]->movement();
 					}
 					flyer[i]->draw();
 				}
 			}
-			if (crawler != NULL) {
-				crawler->draw();
-				crawler->movement();
+
+			for (int i = 0; i < E1MAX; i++) {
+				if (crawler[i] != NULL && crawler[i]->getActive()) {
+					if (!FFreezeBool) {
+						crawler[i]->movement();
+					}
+					crawler[i]->draw();
+				}
 			}
-	
+		
 			spellManager->spellmanager();
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && spellManager->getSelected() == 1) {
@@ -105,9 +117,9 @@ namespace sSlinger {
 							for (size_t i = 0; i < E1MAX; i++) {
 								flyer[i]->setSpeed(0, 0);
 								flyer[i]->moveToPoint(vacuum->getPos());
+								crawler[i]->moveToPoint(vacuum->getPos());
 							}
 						}
-					crawler->moveToPoint(vacuum->getPos());
 				}
 			}
 
@@ -159,20 +171,20 @@ namespace sSlinger {
 					vacuum = NULL;
 				}
 
-			for (size_t i = 0; i < E1MAX; i++)
-			{
+			for (int i = 0; i < E1MAX; i++){
 				if (shockgate != NULL)//HAY QUE MEJORAR ESTE CHEQUEO HORRENDO, DESPUES HAGO UNA FUNCION
+
 					if (CheckCollisionPointTriangle(flyer[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
 						Vector2{ shockgate->getMousePos1().x + 10,shockgate->getMousePos1().y + 10 }) ||
 						CheckCollisionPointTriangle(flyer[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
 						Vector2{ shockgate->getMousePos2().x + 10,shockgate->getMousePos2().y + 10 }) ||
-						CheckCollisionPointTriangle(crawler->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
+						CheckCollisionPointTriangle(crawler[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
 						Vector2{ shockgate->getMousePos1().x + 10,shockgate->getMousePos1().y + 10 }) ||
-						CheckCollisionPointTriangle(crawler->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
+						CheckCollisionPointTriangle(crawler[i]->getPos(), shockgate->getMousePos1(), shockgate->getMousePos2(),
 						Vector2{ shockgate->getMousePos2().x + 10,shockgate->getMousePos2().y + 10 })
 						) {
 						flyer[i]->setShocked(true);
-						crawler->setShocked(true);
+						crawler[i]->setShocked(true);
 					}
 
 				if (flyer[i]->getShocked()) {
@@ -181,10 +193,10 @@ namespace sSlinger {
 						flyer[i]->setShocked(false);
 					}
 				}
-				if (crawler->getShocked()) {
-					crawler->increaseTimer(0.05);
-					if (crawler->getTimer() > 15.0) {
-						crawler->setShocked(false);
+				if (crawler[i]->getShocked()) {
+					crawler[i]->increaseTimer(0.05);
+					if (crawler[i]->getTimer() > 15.0) {
+						crawler[i]->setShocked(false);
 					}
 				}
 			}
@@ -196,17 +208,18 @@ namespace sSlinger {
 						fireball = NULL;
 						delete flyer[i];
 						flyer[i] = NULL;
-						flyer[i] = new Enemy1;
 					}
 
 			}
-			if (fireball != NULL && crawler != NULL) {
-				if (CheckCollisionCircles(crawler->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
+			for (size_t i = 0; i < E1MAX; i++)
+			if (fireball != NULL && crawler[i] != NULL) {
+				if (CheckCollisionCircles(crawler[i]->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
 					delete fireball;
 					fireball = NULL;
-					delete crawler;
-					crawler = NULL;
-					crawler = new Crawler;
+					delete crawler[i];
+					crawler[i] = NULL;
+					
+					
 				}
 			}
 
@@ -218,6 +231,7 @@ namespace sSlinger {
 				}
 			}
 			if (IsKeyReleased(KEY_P)) {
+				ShowCursor();
 				if (pauseScene() == 1);
 					setGameBool(false);	
 			}
@@ -227,6 +241,25 @@ namespace sSlinger {
 
 	void Mainframe::setGameBool(bool result) {
 		_gameBool = result;
+	}
+
+
+	float EMTimer = 0;
+	int EMCounter = 0;
+	void Mainframe::enemyManager() {
+		EMTimer += GetFrameTime();
+		if (EMTimer > 4.0f) {
+			for (int i = 0; i < 3; i++) {
+				crawler[EMCounter]->setActive(true);
+				flyer[EMCounter]->setActive(true);
+				EMCounter++;
+				if (i == 2)
+					EMTimer = 0;
+				if (EMCounter == 49)
+					_gameBool = false;
+			}
+		}
+		
 	}
 }
 

@@ -4,7 +4,7 @@ namespace sSlinger {
 	Crawler::Crawler() {
 		_winWidth = 810;
 		_winHeight = 450;
-		_pos.x = 830;
+		_pos.x = GetRandomValue(830, 950);
 		_pos.y = 440;
 		_life = 50;
 		_speedY = 100.0f;
@@ -13,8 +13,12 @@ namespace sSlinger {
 		_shocked = false;
 		_frozen = false;
 		_startPoint = _pos.y;
+		_active = false;
+		_ID = ID;
+		ID++;
 	}
 	Crawler::~Crawler() {
+		ID--;
 	}
 
 	void Crawler::setLife(int life) {
@@ -72,6 +76,12 @@ namespace sSlinger {
 	}
 	void Crawler::setFrozen(bool set) {
 		_frozen = set;
+	}
+	void Crawler::setActive(bool active) {
+		_active = active;
+	}
+	bool Crawler::getActive() {
+		return _active;
 	}
 	void Crawler::draw() {
 		DrawTexture(TextureManager::getCrawlerSprite(), _pos.x - TextureManager::getCrawlerSprite().width / 2, _pos.y - TextureManager::getCrawlerSprite().height / 2, WHITE);

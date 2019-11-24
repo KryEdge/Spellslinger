@@ -10,6 +10,7 @@ namespace sSlinger {
 		_lives = 8;
 	}
 	Player::~Player(){
+
 	}
 	Rectangle Player::getRec() {
 		return _rec;

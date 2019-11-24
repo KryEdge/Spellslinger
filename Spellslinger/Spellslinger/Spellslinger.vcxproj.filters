@@ -66,6 +66,9 @@
     <ClCompile Include="..\src\objects\enemies\Enemy1.cpp">
       <Filter>src\objects\enemies</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\logic\EnemyManager.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\enemies\Enemy1.h">
       <Filter>src\objects\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\logic\EnemyManager.h">
+      <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
