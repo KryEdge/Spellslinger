@@ -60,7 +60,7 @@ namespace sSlinger {
 			DrawTexture(TextureManager::getBackground(), 0, 0, WHITE);
 			DrawRectangleRec(_floor, RED);
 			player->draw();
-			DrawRectangle(player->getRec().x - 30, player->getRec().y + 20, 60, 40, SKYBLUE);
+			DrawTexture(TextureManager::getBrick(), player->getRec().x - 20, player->getRec().y + 20, WHITE);
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 			DrawText(FormatText("v 0.3"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
 			if (!IsMusicPlaying(SoundManager::getMainTheme()))
@@ -230,14 +230,13 @@ namespace sSlinger {
 				}
 			}
 
-
 			/*for (int i = 0; i < E1MAX; i++) {
 				if (flyer[i]->getPos().x < 0 && flyer[i] != NULL) {
 					delete flyer[i];
 					flyer[i] = NULL;
 					flyer[i] = new Enemy1;
 				}
-			}*/
+			}*/                 //FUNCION OBSOLETA DE MOVER ENEMIGOS A LA DERECHA DE LA PANTALLA, DEBERIAMOS BORRARLA YA NO?
 
 			if (IsKeyReleased(KEY_P)) {
 				ShowCursor();

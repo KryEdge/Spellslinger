@@ -7,6 +7,7 @@ namespace sSlinger {
 	Texture2D TextureManager::_crawlerSprite = Texture2D();	
 	Texture2D TextureManager::_playerSprite = Texture2D();	
 	Texture2D TextureManager::_background = Texture2D();
+	Texture2D TextureManager::_brick = Texture2D();
 
 	void TextureManager::loadTextures() {
 		_ghostSprite = LoadTexture("../res/Assets/Flyer_Float.png");
@@ -19,6 +20,7 @@ namespace sSlinger {
 		_playerSprite.height /= 5;
 		_playerSprite.width /= 5;
 		_background = LoadTexture("../res/Assets/background.png");
+		_brick = LoadTexture("../res/Assets/brick.png");
 	}
 
 	void TextureManager::unloadTextures() {
@@ -26,11 +28,11 @@ namespace sSlinger {
 		UnloadTexture(_crawlerSprite);
 		UnloadTexture(_playerSprite);
 		UnloadTexture(_background);
+		UnloadTexture(_brick);
 	}
 
 	Texture2D TextureManager::getGhostSprite() {
 		return _ghostSprite;
-
 	}	
 	
 	Texture2D TextureManager::getCrawlerSprite() {
@@ -43,5 +45,9 @@ namespace sSlinger {
 
 	Texture2D TextureManager::getBackground() {
 		return _background;
+	}	
+	
+	Texture2D TextureManager::getBrick() {
+		return _brick;
 	}
 }

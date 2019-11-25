@@ -8,6 +8,7 @@ namespace sSlinger {
 		static Texture2D _crawlerSprite;
 		static Texture2D _playerSprite;
 		static Texture2D _background;
+		static Texture2D _brick;
 	public:
 		static void loadTextures();
 		static void unloadTextures();
@@ -15,6 +16,7 @@ namespace sSlinger {
 		static Texture2D getCrawlerSprite();
 		static Texture2D getPlayerSprite();
 		static Texture2D getBackground();
+		static Texture2D getBrick();
 	};
 }
 	
