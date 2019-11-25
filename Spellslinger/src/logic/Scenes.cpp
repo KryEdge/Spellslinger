@@ -124,43 +124,49 @@ void menuScene() {
 }
 
 void creditScene() {
+
 	bool creditBool = true;
-	int creditStartX = 100;
+
 	Rectangle creditsButton;
 	creditsButton.x = menuPlayTextX;
 	creditsButton.y = menuPlayTextY + 160;
 	creditsButton.height = 30;
 	creditsButton.width = 113;
+	int creditStartX = 100;
+	int creditFontSize = 20;
+	Texture2D credits = LoadTexture("../res/Assets/creditos.png");
 
 	while (creditBool) {
 		BeginDrawing();
 		ClearBackground(BLACK);
 
 		DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
+		
+		DrawTexture(credits, 0, titlePosY + 60, WHITE);
+/*		
+		DrawText(FormatText("Programmers"), creditStartX, 100, creditFontSize, RED);
+		DrawLine(creditStartX,120, creditStartX + 160, 120, RED);
+		DrawText(FormatText("Matias Karplus"), creditStartX, 125, creditFontSize, WHITE);
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 145, creditFontSize, WHITE);
+	
+		DrawText(FormatText("Music"), creditStartX, 175, creditFontSize, YELLOW);
+		DrawLine(creditStartX, 195, creditStartX + 160, 195, YELLOW);
+		DrawText(FormatText("Berserk - El Psy Kongroo"), creditStartX, 200, creditFontSize, WHITE);
+	
+		DrawText(FormatText("Assets"), creditStartX, 230, creditFontSize, SKYBLUE);
+		DrawLine(creditStartX, 250, creditStartX + 160, 250, SKYBLUE);
+		DrawText(FormatText("Ghost & Worm - Fantasy Enemy Creatures - Game Dev Market"), creditStartX, 255, creditFontSize, WHITE);
+		DrawText(FormatText("Background - Pixelart Game Backgrounds - Game Dev Market"), creditStartX, 275, creditFontSize, WHITE);
 
-		DrawText(FormatText("Programmers"), creditStartX, 100, 20, RED);
-		DrawLine(creditStartX,120, titlePosX + 160, 120, WHITE);
-		DrawText(FormatText("Matias Karplus"), creditStartX, 125, 20, WHITE);
-		DrawText(FormatText("Tomas Carceglia"), creditStartX, 145, 20, WHITE);
-
-		DrawText(FormatText("Music"), creditStartX, 175, 20, YELLOW);
-		DrawLine(creditStartX, 195, titlePosX + 160, 195, WHITE);
-		DrawText(FormatText("Berserk - El Psy Kongroo"), creditStartX, 200, 20, WHITE);
-
-		DrawText(FormatText("Assets"), creditStartX, 230, 20, SKYBLUE);
-		DrawLine(creditStartX, 250, titlePosX + 160, 250, WHITE);
-		DrawText(FormatText("Ghost & Worm - Fantasy Enemy Creatures - Game Dev Market"), creditStartX, 255, 20, WHITE);
-		DrawText(FormatText("Background - Pixelart Game Backgrounds - Game Dev Market"), creditStartX, 275, 20, WHITE);
-
-		DrawText(FormatText("Extra Art"), creditStartX, 305, 20, LIGHTGRAY);
-		DrawLine(creditStartX, 325, titlePosX + 160, 325, WHITE);
-		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, 20, WHITE);
-
+		DrawText(FormatText("Extra Art"), creditStartX, 305, creditFontSize, LIGHTGRAY);
+		DrawLine(creditStartX, 325, creditStartX + 160, 325, LIGHTGRAY);
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, creditFontSize, WHITE);*/
+			
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton))
 			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, RED);
 		else
 			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, WHITE);
-
+			
 		EndDrawing();
 
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
