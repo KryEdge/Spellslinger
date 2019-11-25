@@ -22,6 +22,7 @@ namespace sSlinger {
 		int _winHeight;
 		bool _gameBool;
 		Rectangle _floor;
+		bool _Espawn;
 	public:
 		Mainframe();
 		~Mainframe();

@@ -20,6 +20,7 @@ namespace sSlinger {
 		_winWidth = 800;
 		_winHeight = 450;
 		_floor = { 0.0f,static_cast<float>(_winHeight),static_cast<float>(_winWidth),10.0f };
+		_Espawn = true;
 	}
 	Mainframe::~Mainframe() {
 
@@ -29,8 +30,11 @@ namespace sSlinger {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
 		InitAudioDevice();
 		SetTargetFPS(60);
+
+	}
+
+	void Mainframe::runProgram() {
 		player = new Player();
-		SetTargetFPS(60);
 		for (int i = 0; i < E1MAX; i++) {
 			flyer[i] = NULL;
 			flyer[i] = new Enemy1;
@@ -39,19 +43,16 @@ namespace sSlinger {
 		}
 		spellManager = new SpellManager;
 		spellManager->initializeButtons();
-	}
-
-	void Mainframe::runProgram() {
+		_gameBool = true;
+		TextureManager::loadTextures();
+		SoundManager::loadSounds();
+		SetMusicVolume(SoundManager::getMainTheme(), 0.12);
 
 		int fireball_frameCounter = 0;
 		Color ballColor = RED;
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
 		bool shockBool = false;
-		_gameBool = true;
-		TextureManager::loadTextures();
-		SoundManager::loadSounds();
-		SetMusicVolume(SoundManager::getMainTheme(), 0.12);
 
 		while (_gameBool) {
 			HideCursor();
@@ -243,6 +244,18 @@ namespace sSlinger {
 				if (pauseScene() == 1)
 					setGameBool(false);	
 			}
+			for (int i = 0; i < E1MAX; i++){
+				if (flyer[i]!=NULL)
+					if (flyer[i]->getPos().x<0){
+						flyer[i]->setActive(false);
+						
+					}
+				if (crawler[i] != NULL)
+					if (crawler[i]->getPos().x < 0) {
+						crawler[i]->setActive(false);
+					}
+			}
+
 		}
 	
 	}
@@ -256,15 +269,16 @@ namespace sSlinger {
 	int EMCounter = 0;
 	void Mainframe::enemyManager() {
 		EMTimer += GetFrameTime();
-		if (EMTimer > 4.0f) {
-			for (int i = 0; i < 5; i++) {
+		if (EMTimer > 5.0f&&_Espawn) {
+			for (int i = 0; i < 3; i++) {
 				crawler[EMCounter]->setActive(true);
 				flyer[EMCounter]->setActive(true);
 				EMCounter++;
-				if (i == 4)
+				if (i == 2)
 					EMTimer = 0;
-				if (EMCounter == 49)
-					_gameBool = false;
+				if (EMCounter >= 40) {
+					_Espawn = false;
+				}
 			}
 		}
 		

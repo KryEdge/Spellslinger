@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\logic\EnemyManager.cpp" />
     <ClCompile Include="..\src\logic\MagicNumbers.cpp" />
     <ClCompile Include="..\src\logic\Main.cpp" />
     <ClCompile Include="..\src\logic\Scenes.cpp" />
@@ -36,7 +35,6 @@
     <ClCompile Include="FFreeze.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\logic\EnemyManager.h" />
     <ClInclude Include="..\src\logic\MagicNumbers.h" />
     <ClInclude Include="..\src\logic\Scenes.h" />
     <ClInclude Include="..\src\logic\SoundManager.h" />
@@ -55,7 +53,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{B62A2249-3852-4083-ABF8-2F560A95C659}</ProjectGuid>
     <RootNamespace>Spellslinger</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
