@@ -18,6 +18,6 @@ namespace sSlinger {
 		void spellmanager();
 		int getSelected();
 		void setSelected(int selected);
-		
+		Color getColor();
 	};
 }

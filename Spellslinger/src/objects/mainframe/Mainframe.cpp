@@ -50,7 +50,7 @@ namespace sSlinger {
 		_gameBool = true;
 		TextureManager::loadTextures();
 		SoundManager::loadSounds();
-		SetMusicVolume(SoundManager::getMainTheme(), 0.2);
+		SetMusicVolume(SoundManager::getMainTheme(), 0.12);
 
 		while (_gameBool) {
 			HideCursor();
@@ -59,14 +59,16 @@ namespace sSlinger {
 			ClearBackground(BLACK);
 			DrawTexture(TextureManager::getBackground(), 0, 0, WHITE);
 			DrawRectangleRec(_floor, RED);
+			DrawRectangle(player->getRec().x + 5, player->getRec().y - 15, 15, 10, spellManager->getColor());
 			player->draw();
-			DrawTexture(TextureManager::getBrick(), player->getRec().x - 20, player->getRec().y + 20, WHITE);
+			DrawTexture(TextureManager::getBrick(), player->getRec().x - 20, player->getRec().y + 20, WHITE);	
 			DrawCircleLines(GetMouseX(), GetMouseY(), 15, ballColor);
 			DrawText(FormatText("v 0.3"), GetScreenWidth() - 50, 1, 20, { 255,255,255,100 });
 			if (!IsMusicPlaying(SoundManager::getMainTheme()))
 				PlayMusicStream(SoundManager::getMainTheme());
 			UpdateMusicStream(SoundManager::getMainTheme());
 			enemyManager();
+
 			for (int i = 0; i < E1MAX; i++) {
 				if (flyer[i] != NULL && flyer[i]->getActive()) {
 					if (!FFreezeBool) {

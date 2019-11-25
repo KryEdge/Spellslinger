@@ -60,5 +60,9 @@ namespace sSlinger{
 		}
 	}
 
+	Color SpellManager::getColor() {
+		return _mouseColor;
+	}
+
 	
 }

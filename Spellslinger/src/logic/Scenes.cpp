@@ -26,14 +26,14 @@ void controlsScene() {
 	_rec4.x = GetScreenWidth() / 3 + 160;
 	_rec4.y = menuPlayTextY - 50;
 
-		DrawRectangleRec(_rec1, WHITE);
-		DrawRectangleLinesEx(_rec1, 5, RED);
-		DrawRectangleRec(_rec2, WHITE);
-		DrawRectangleLinesEx(_rec2, 5, YELLOW);
-		DrawRectangleRec(_rec3, WHITE);
-		DrawRectangleLinesEx(_rec3, 5, SKYBLUE);
-		DrawRectangleRec(_rec4, WHITE);
-		DrawRectangleLinesEx(_rec4, 5, LIGHTGRAY);
+	DrawRectangleRec(_rec1, WHITE);
+	DrawRectangleLinesEx(_rec1, 5, RED);
+	DrawRectangleRec(_rec2, WHITE);
+	DrawRectangleLinesEx(_rec2, 5, YELLOW);
+	DrawRectangleRec(_rec3, WHITE);
+	DrawRectangleLinesEx(_rec3, 5, SKYBLUE);
+	DrawRectangleRec(_rec4, WHITE);
+	DrawRectangleLinesEx(_rec4, 5, LIGHTGRAY);
 	DrawText(FormatText("Q"), GetScreenWidth()/3+ 40, menuPlayTextY, promptFontSize, WHITE);
 	DrawText(FormatText("W"), GetScreenWidth()/3+ 80, menuPlayTextY, promptFontSize, WHITE);
 	DrawText(FormatText("R"), GetScreenWidth()/3+ 160, menuPlayTextY, promptFontSize, WHITE);
@@ -67,14 +67,15 @@ void menuScene() {
 	closeButton.y = menuPlayTextY + 150;
 	closeButton.height = 30;
 	closeButton.width = 81.25f;
+	Texture2D logo = LoadTexture("../res/Assets/logo.png");
 
 
 
 	while (menuBool) {
 		BeginDrawing();
 		ClearBackground(BLACK);
-
-		DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
+		DrawTexture(logo, titlePosX, titlePosY, WHITE);
+		//DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
 		if (CheckCollisionPointRec(GetMousePosition(), playButton))
 			DrawText(FormatText("Play"), menuPlayTextX, menuPlayTextY, promptFontSize, RED);
 		else
