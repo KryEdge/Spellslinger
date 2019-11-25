@@ -3,7 +3,7 @@
 const int screenWidth = 800;
 const int screenHeight = 450;
 const int titlePosX = 100;
-const int titlePosY = screenHeight / 12;
+const int titlePosY = screenHeight / 13;
 const int titleFontSize = 60;
 const int promptFontSize = 30;
 const float menuPlayTextX = 20;

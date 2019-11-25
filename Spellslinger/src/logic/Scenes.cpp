@@ -125,7 +125,7 @@ void menuScene() {
 
 void creditScene() {
 	bool creditBool = true;
-
+	int creditStartX = 100;
 	Rectangle creditsButton;
 	creditsButton.x = menuPlayTextX;
 	creditsButton.y = menuPlayTextY + 160;
@@ -135,17 +135,33 @@ void creditScene() {
 	while (creditBool) {
 		BeginDrawing();
 		ClearBackground(BLACK);
+
 		DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
-		//DrawText(FormatText("Lead Programmer"), creditsTitle1X, creditsTitle1Y, 30, WHITE);
-		//DrawText(FormatText("Matias Karplus"), creditsSub1X, creditsSub1Y, 20, WHITE);
+
+		DrawText(FormatText("Programmers"), creditStartX, 100, 20, RED);
+		DrawLine(creditStartX,120, titlePosX + 160, 120, WHITE);
+		DrawText(FormatText("Matias Karplus"), creditStartX, 125, 20, WHITE);
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 145, 20, WHITE);
+
+		DrawText(FormatText("Music"), creditStartX, 175, 20, YELLOW);
+		DrawLine(creditStartX, 195, titlePosX + 160, 195, WHITE);
+		DrawText(FormatText("Berserk - El Psy Kongroo"), creditStartX, 200, 20, WHITE);
+
+		DrawText(FormatText("Assets"), creditStartX, 230, 20, SKYBLUE);
+		DrawLine(creditStartX, 250, titlePosX + 160, 250, WHITE);
+		DrawText(FormatText("Ghost & Worm - Fantasy Enemy Creatures - Game Dev Market"), creditStartX, 255, 20, WHITE);
+		DrawText(FormatText("Background - Pixelart Game Backgrounds - Game Dev Market"), creditStartX, 275, 20, WHITE);
+
+		DrawText(FormatText("Extra Art"), creditStartX, 305, 20, LIGHTGRAY);
+		DrawLine(creditStartX, 325, titlePosX + 160, 325, WHITE);
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, 20, WHITE);
 
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton))
-			DrawText(FormatText("Credits"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, RED);
+			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, RED);
 		else
-			DrawText(FormatText("Credits"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, WHITE);
+			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, WHITE);
+
 		EndDrawing();
-
-
 
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
 			creditBool = false;
@@ -173,7 +189,7 @@ int pauseScene() {
 	while (pauseBool) {
 		BeginDrawing();
 		ClearBackground(BLACK);
-		DrawText(FormatText("PAUSED"), titlePosX, 1, titleFontSize, WHITE);
+		DrawText(FormatText("PAUSED"), titlePosX+180, 50, titleFontSize, WHITE);
 		if (CheckCollisionPointRec(GetMousePosition(), resumeButton))
 			DrawText(FormatText("Resume"), menuPlayTextX, menuPlayTextY, promptFontSize, RED);
 		else

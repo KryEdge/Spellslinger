@@ -15,5 +15,4 @@ extern const float creditsSub1X;
 extern const float creditsSub1Y;
 
 
-
 #endif
