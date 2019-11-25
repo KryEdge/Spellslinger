@@ -66,9 +66,6 @@
     <ClCompile Include="..\src\objects\enemies\Enemy1.cpp">
       <Filter>src\objects\enemies</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\logic\EnemyManager.cpp">
-      <Filter>src\logic</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\logic\SoundManager.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
@@ -107,9 +104,6 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\enemies\Enemy1.h">
       <Filter>src\objects\enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\logic\EnemyManager.h">
-      <Filter>src\logic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\logic\SoundManager.h">
       <Filter>src\logic</Filter>
