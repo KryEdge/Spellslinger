@@ -19,7 +19,7 @@ void Vacuum::effect() {
 	DrawCircleV(getPos(), _aoe, Fade(effectColor, 0.2f));
 }
 void Vacuum::setTrigger(bool trigger) {
-	_trigger = trigger;
+	_trigger = trigger;	
 }
 bool Vacuum::getActive() {
 	return _trigger;

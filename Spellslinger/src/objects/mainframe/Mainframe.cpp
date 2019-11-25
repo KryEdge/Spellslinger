@@ -136,7 +136,7 @@ namespace sSlinger {
 			}
 
 			if (vacuumBool) {
-				if (vacuum->getPos().x >= vacuum->getTarget().x || vacuum->getPos().y <= vacuum->getTarget().y || IsMouseButtonReleased(MOUSE_RIGHT_BUTTON) && spellManager->getSelected() == 4) {
+				if ((vacuum->getPos().x >= vacuum->getTarget().x && vacuum->getPos().y <= vacuum->getTarget().y )|| IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) && spellManager->getSelected() == 4) {
 					vacuum->effect();
 					vacuum->increaseTimer(0.05);
 					vacuum->setTrigger(false);
