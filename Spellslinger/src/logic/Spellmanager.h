@@ -1,5 +1,5 @@
 #pragma once
-
+#include "logic/TextureManager.h"
 namespace sSlinger {
 
 	class SpellManager {

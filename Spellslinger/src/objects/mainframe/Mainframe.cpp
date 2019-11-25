@@ -43,6 +43,7 @@ namespace sSlinger {
 
 	void Mainframe::runProgram() {
 
+		int fireball_frameCounter = 0;
 		Color ballColor = RED;
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
@@ -54,7 +55,7 @@ namespace sSlinger {
 
 		while (_gameBool) {
 			HideCursor();
-			
+			fireball_frameCounter++;
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawTexture(TextureManager::getBackground(), 0, 0, WHITE);
@@ -120,6 +121,7 @@ namespace sSlinger {
 				fFreeze = new FFreeze;
 			}
 			if (FFreezeBool) {
+				DrawTexture(TextureManager::getFFreeze(), GetMouseX()-20, GetMouseY()-18, WHITE); //ESTO SE PUEDE CAMBIAR, NO SE COMO GRAFICAR EL FFREEZE
 				timer += 1 * GetFrameTime();
 				if (timer >= 2.0f) {
 					FFreezeBool = false;
@@ -153,7 +155,8 @@ namespace sSlinger {
 				}
 			}
 
-			if (fireball != NULL)
+			if (fireball != NULL) {
+				int fireball_currentFrame = 0;
 				if (fireball->getActive()) {
 					fireball->moveBullet();
 					DrawCircleV({ fireball->getPos().x, fireball->getPos().y }, fireball->getHitbox(), RED);
@@ -162,7 +165,10 @@ namespace sSlinger {
 						delete fireball;
 						fireball = NULL;
 					}
+
 				}
+			}
+				
 
 			if (vacuum != NULL)
 				if (vacuum->getActive()) {

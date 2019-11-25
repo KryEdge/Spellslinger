@@ -1,5 +1,5 @@
 #include "raylib.h"
-
+#include "logic/TextureManager.h"
 
 class Bullet {
 private:
@@ -20,7 +20,7 @@ public:
 	void setActive(bool active);
 	bool getActive();
 	Vector2 getPos();
-
 	void moveBullet();
 	void vecBullet();
+	void draw();
 };

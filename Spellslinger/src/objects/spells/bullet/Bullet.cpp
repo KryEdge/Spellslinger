@@ -1,4 +1,4 @@
-#include "Bullet.h"
+#include "objects/spells/bullet/Bullet.h"
 
 Bullet::Bullet() {
 	_target.x = GetMouseX();
@@ -16,18 +16,23 @@ Bullet::Bullet() {
 Bullet::~Bullet() {
 
 }
+
 void Bullet::setTrigger(bool trigger) {
 	_trigger = trigger;
 }
+
 bool Bullet::getTrigger() {
 	return _trigger;
 }
+
 float Bullet::getHitbox() {
 	return _hitbox;
 }
+
 bool Bullet::getActive() {
 	return _active;
 }
+
 void Bullet::setActive(bool active) {
 	_active = active;
 }
@@ -40,9 +45,11 @@ void Bullet::vecBullet() {
 	_distance.x = _target.x - _pos.x;
 	_distance.y = _target.y - _pos.y;
 }
+
 void Bullet::moveBullet() {
 	
 	_pos.x += _distance.x / 60;
 	_pos.y += _distance.y/ 60;
 
 }
+
