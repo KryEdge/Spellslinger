@@ -12,6 +12,7 @@
 #include "objects/spells/Shockgate.h"
 #include "logic/Scenes.h"
 #include "logic/TextureManager.h"
+#include "logic/SoundManager.h"
 
 
 namespace sSlinger {

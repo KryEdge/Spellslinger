@@ -23,6 +23,7 @@
     <ClCompile Include="..\src\logic\MagicNumbers.cpp" />
     <ClCompile Include="..\src\logic\Main.cpp" />
     <ClCompile Include="..\src\logic\Scenes.cpp" />
+    <ClCompile Include="..\src\logic\SoundManager.cpp" />
     <ClCompile Include="..\src\logic\Spellmanager.cpp" />
     <ClCompile Include="..\src\logic\TextureManager.cpp" />
     <ClCompile Include="..\src\objects\enemies\Crawler.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="..\src\logic\EnemyManager.h" />
     <ClInclude Include="..\src\logic\MagicNumbers.h" />
     <ClInclude Include="..\src\logic\Scenes.h" />
+    <ClInclude Include="..\src\logic\SoundManager.h" />
     <ClInclude Include="..\src\logic\Spellmanager.h" />
     <ClInclude Include="..\src\logic\TextureManager.h" />
     <ClInclude Include="..\src\objects\enemies\Crawler.h" />
@@ -53,7 +55,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{B62A2249-3852-4083-ABF8-2F560A95C659}</ProjectGuid>
     <RootNamespace>Spellslinger</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

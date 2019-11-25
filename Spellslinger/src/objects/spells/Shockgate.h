@@ -1,5 +1,7 @@
 #pragma once
 #include "raylib.h"
+#include "objects/enemies/Crawler.h"
+#include "objects/enemies/Enemy1.h"
 
 class Shockgate {
 private:
@@ -30,5 +32,7 @@ public:
 	void increaseTimer(float increase);
 	void vecBullet();
 	void moveBullet();
+	bool hitboxCheckFlyers(Vector2 posFlyer);
+	bool hitboxCheckCrawlers(Vector2 posCrawler);
 };
 
