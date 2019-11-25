@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "MagicNumbers.h"
+#include "logic/SoundManager.h"
 #include <iostream>
 using namespace std;
 

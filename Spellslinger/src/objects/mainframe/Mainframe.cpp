@@ -136,7 +136,7 @@ namespace sSlinger {
 			}
 
 			if (vacuumBool) {
-				if ((vacuum->getPos().x >= vacuum->getTarget().x && vacuum->getPos().y <= vacuum->getTarget().y )|| IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) && spellManager->getSelected() == 4) {
+				if ((vacuum->getPos().x >= vacuum->getTarget().x)) {
 					vacuum->effect();
 					vacuum->increaseTimer(0.05);
 					vacuum->setTrigger(false);
@@ -232,14 +232,6 @@ namespace sSlinger {
 				}
 			}
 
-			/*for (int i = 0; i < E1MAX; i++) {
-				if (flyer[i]->getPos().x < 0 && flyer[i] != NULL) {
-					delete flyer[i];
-					flyer[i] = NULL;
-					flyer[i] = new Enemy1;
-				}
-			}*/                 //FUNCION OBSOLETA DE MOVER ENEMIGOS A LA DERECHA DE LA PANTALLA, DEBERIAMOS BORRARLA YA NO?
-
 			if (IsKeyReleased(KEY_P)) {
 				ShowCursor();
 				if (pauseScene() == 1)
@@ -259,8 +251,7 @@ namespace sSlinger {
 	void Mainframe::enemyManager() {
 		EMTimer += GetFrameTime();
 		if (EMTimer > 4.0f) {
-			for (int i = 0; i < 6; i++) {
-
+			for (int i = 0; i < 5; i++) {
 				crawler[EMCounter]->setActive(true);
 				flyer[EMCounter]->setActive(true);
 				EMCounter++;

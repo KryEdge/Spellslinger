@@ -69,13 +69,12 @@ void menuScene() {
 	closeButton.width = 81.25f;
 	Texture2D logo = LoadTexture("../res/Assets/logo.png");
 
-
-
 	while (menuBool) {
 		BeginDrawing();
 		ClearBackground(BLACK);
+
 		DrawTexture(logo, titlePosX, titlePosY, WHITE);
-		//DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
+
 		if (CheckCollisionPointRec(GetMousePosition(), playButton))
 			DrawText(FormatText("Play"), menuPlayTextX, menuPlayTextY, promptFontSize, RED);
 		else
