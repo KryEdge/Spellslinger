@@ -28,9 +28,10 @@ namespace sSlinger {
 		return _pos;
 	}
 	void Crawler::movement() {
+		if (!_shocked) { _speedY = 100.0; _speedX = 100.0; }
+		else { _speedY = 50.0; _speedX = 50.0; };
 		if (!_frozen) {
-			if (_shocked)_pos.x -= (_speedX / 2) * GetFrameTime();
-			else _pos.x -= _speedX * GetFrameTime();
+			_pos.x -= _speedX * GetFrameTime();
 			if (_pos.y < 440) {
 				_pos.y += _speedY * GetFrameTime();
 			}
