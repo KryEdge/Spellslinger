@@ -8,7 +8,7 @@ namespace sSlinger {
 		_pos.y = 440;
 		_life = 50;
 		_speedY = 100.0f;
-		_speedX = 100.0f;
+		_speedX = 70.0f;
 		_timer = 0.0f;
 		_shocked = false;
 		_frozen = false;

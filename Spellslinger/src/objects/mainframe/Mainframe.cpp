@@ -30,8 +30,11 @@ namespace sSlinger {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
 		InitAudioDevice();
 		SetTargetFPS(60);
+
+	}
+
+	void Mainframe::runProgram() {
 		player = new Player();
-		SetTargetFPS(60);
 		for (int i = 0; i < E1MAX; i++) {
 			flyer[i] = NULL;
 			flyer[i] = new Enemy1;
@@ -40,19 +43,16 @@ namespace sSlinger {
 		}
 		spellManager = new SpellManager;
 		spellManager->initializeButtons();
-	}
-
-	void Mainframe::runProgram() {
+		_gameBool = true;
+		TextureManager::loadTextures();
+		SoundManager::loadSounds();
+		SetMusicVolume(SoundManager::getMainTheme(), 0.12);
 
 		int fireball_frameCounter = 0;
 		Color ballColor = RED;
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
 		bool shockBool = false;
-		_gameBool = true;
-		TextureManager::loadTextures();
-		SoundManager::loadSounds();
-		SetMusicVolume(SoundManager::getMainTheme(), 0.12);
 
 		while (_gameBool) {
 			HideCursor();

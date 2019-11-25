@@ -7,7 +7,7 @@ namespace sSlinger {
 		_pos.x = GetRandomValue(_winWidth,_winWidth+170);
 		_pos.y = GetRandomValue(_winHeight/2-50,_winHeight/2+50);
 		_life = 20;
-		_speedY = 125.0f;
+		_speedY = 100.0f;
 		_speedX = 130.0f;
 		_inc = 0.05f;
 		_timer = 0.0f;
