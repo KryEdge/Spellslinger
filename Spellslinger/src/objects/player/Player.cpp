@@ -22,6 +22,10 @@ namespace sSlinger {
 		{
 			DrawRectangle(((pos1+10)*i)+10, 50, 10, 20, GREEN);
 		}
+
+		if (_lives == 0) {
+			if (!IsSoundPlaying(SoundManager::getDeathSfx())) PlaySound(SoundManager::getDeathSfx());
+		}
 	}
 }
 	

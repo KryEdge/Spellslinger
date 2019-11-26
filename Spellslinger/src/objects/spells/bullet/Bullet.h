@@ -1,3 +1,4 @@
+#pragma once
 #include "raylib.h"
 #include "logic/TextureManager.h"
 
@@ -22,5 +23,4 @@ public:
 	Vector2 getPos();
 	void moveBullet();
 	void vecBullet();
-	void draw();
 };

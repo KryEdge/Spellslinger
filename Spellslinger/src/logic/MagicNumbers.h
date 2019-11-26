@@ -1,4 +1,4 @@
-
+#pragma once
 #ifndef MAGICNUMBERS_H
 #define MAGICNUMBERS_H			 
 extern const int screenWidth;

@@ -1,4 +1,6 @@
+#pragma once
 #include "raylib.h"
+#include "logic/SoundManager.h"
 #include "logic/TextureManager.h"
 
 namespace sSlinger {

@@ -1,5 +1,5 @@
-#ifndef MAINFRAME_H
-#define MAINFRAME_H
+#pragma once
+
 #define E1MAX 50
 #include "raylib.h"
 #include "objects/player/Player.h"
@@ -40,4 +40,3 @@ namespace sSlinger {
 	extern Crawler* crawler[E1MAX];
 }
 	
-#endif

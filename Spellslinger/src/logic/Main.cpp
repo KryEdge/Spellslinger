@@ -20,8 +20,6 @@ void main() {
 			break;
 		}
 	}
-	SoundManager::unloadSounds();
-	TextureManager::unloadTextures();
 	CloseAudioDevice();
 	CloseWindow();
 

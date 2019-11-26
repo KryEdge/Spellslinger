@@ -1,4 +1,4 @@
-#include "Scenes.h"
+#include "logic/Scenes.h"
 #include "objects/mainframe/Mainframe.h"
 
 Scenes scenes;
@@ -116,6 +116,7 @@ void menuScene() {
 		if (CheckCollisionPointRec(GetMousePosition(), closeButton) && IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
 			exit(0);
 		}
+
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
 			menuBool = false;
 			scenes = credits;
@@ -135,6 +136,7 @@ void creditScene() {
 	int creditStartX = 100;
 	int creditFontSize = 20;
 	Texture2D credits = LoadTexture("../res/Assets/creditos.png");
+	Texture2D credits2 = LoadTexture("../res/Assets/creditos2.png");
 
 	while (creditBool) {
 		BeginDrawing();
@@ -143,7 +145,8 @@ void creditScene() {
 		DrawText(FormatText("Spellslinger"), titlePosX, titlePosY, titleFontSize, WHITE);
 		
 		DrawTexture(credits, 0, titlePosY + 60, WHITE);
-/*		
+		DrawTexture(credits2, screenWidth-credits2.width, 20, WHITE);
+		/*
 		DrawText(FormatText("Programmers"), creditStartX, 100, creditFontSize, RED);
 		DrawLine(creditStartX,120, creditStartX + 160, 120, RED);
 		DrawText(FormatText("Matias Karplus"), creditStartX, 125, creditFontSize, WHITE);
@@ -152,16 +155,19 @@ void creditScene() {
 		DrawText(FormatText("Music"), creditStartX, 175, creditFontSize, YELLOW);
 		DrawLine(creditStartX, 195, creditStartX + 160, 195, YELLOW);
 		DrawText(FormatText("Berserk - El Psy Kongroo"), creditStartX, 200, creditFontSize, WHITE);
-	
+
+		//ALGO DE TODO ESTO HACE BUGGEAR DURISIMO AL PLAYER, NO SOLO LA TEXTURA, SINO TODO EL PLAYER
+		
 		DrawText(FormatText("Assets"), creditStartX, 230, creditFontSize, SKYBLUE);
 		DrawLine(creditStartX, 250, creditStartX + 160, 250, SKYBLUE);
 		DrawText(FormatText("Ghost & Worm - Fantasy Enemy Creatures - Game Dev Market"), creditStartX, 255, creditFontSize, WHITE);
 		DrawText(FormatText("Background - Pixelart Game Backgrounds - Game Dev Market"), creditStartX, 275, creditFontSize, WHITE);
 
-		DrawText(FormatText("Extra Art"), creditStartX, 305, creditFontSize, LIGHTGRAY);
+		DrawText(FormatText("Sfx"), creditStartX, 305, creditFontSize, LIGHTGRAY);
 		DrawLine(creditStartX, 325, creditStartX + 160, 325, LIGHTGRAY);
-		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, creditFontSize, WHITE);*/
-			
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, creditFontSize, WHITE);
+
+		*/
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton))
 			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, RED);
 		else
@@ -179,6 +185,7 @@ void creditScene() {
 		}
 	}
 }
+
 int pauseScene() {
 	bool pauseBool = true;
 	Rectangle resumeButton;

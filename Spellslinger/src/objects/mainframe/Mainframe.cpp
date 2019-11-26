@@ -29,6 +29,7 @@ namespace sSlinger {
 	void Mainframe::initProgram() {
 		InitWindow(_winWidth, _winHeight, "Spellslinger");
 		InitAudioDevice();
+
 		SetTargetFPS(60);
 
 	}
@@ -76,6 +77,7 @@ namespace sSlinger {
 					if (!FFreezeBool) {
 						flyer[i]->movement();
 					}
+					if (!IsSoundPlaying(SoundManager::getGhostSfx())) PlaySound(SoundManager::getGhostSfx());
 					flyer[i]->draw();
 				}
 			}
@@ -111,6 +113,7 @@ namespace sSlinger {
 					Vector2{ shockgate->getMousePos2().x + 2,shockgate->getMousePos2().y + 2 }, GOLD);
 				shockgate->increaseTimer(0.05);
 				if (shockgate->getTimer() > 12.0f) {
+					StopSound(SoundManager::getShockgateSfx());
 					shockBool = false;
 					delete shockgate;
 					shockgate = NULL;
@@ -122,11 +125,13 @@ namespace sSlinger {
 				fFreeze = new FFreeze;
 			}
 			if (FFreezeBool) {
-				DrawTexture(TextureManager::getFFreeze(), GetMouseX()-20, GetMouseY()-18, WHITE); //ESTO SE PUEDE CAMBIAR, NO SE COMO GRAFICAR EL FFREEZE
+				DrawTexture(TextureManager::getFFreeze(), GetMouseX()-20, GetMouseY()-18, WHITE);
+				if (!IsSoundPlaying(SoundManager::getFreezeSfx())) PlaySound(SoundManager::getFreezeSfx());
 				timer += 1 * GetFrameTime();
 				if (timer >= 2.0f) {
 					FFreezeBool = false;
 					timer = 0;
+					StopSound(SoundManager::getFreezeSfx());
 				}
 			}
 
@@ -141,6 +146,7 @@ namespace sSlinger {
 			if (vacuumBool) {
 				if ((vacuum->getPos().x >= vacuum->getTarget().x)) {
 					vacuum->effect();
+					if (!IsSoundPlaying(SoundManager::getVacuumSfx())) PlaySound(SoundManager::getVacuumSfx());
 					vacuum->increaseTimer(0.05);
 					vacuum->setTrigger(false);
 					for (int i = 0; i < E1MAX; i++) {
@@ -180,7 +186,8 @@ namespace sSlinger {
 			EndDrawing();
 
 			if (vacuum != NULL)
-				if (vacuum->getTimer() > 6.0f) {
+				if (vacuum->getTimer() > 8.0f) {
+					StopSound(SoundManager::getVacuumSfx());
 					vacuumBool = false;
 					delete vacuum;
 					vacuum = NULL;
@@ -188,7 +195,7 @@ namespace sSlinger {
 
 			for (int i = 0; i < E1MAX; i++){
 				if (shockgate != NULL) {
-
+					if(!IsSoundPlaying(SoundManager::getShockgateSfx())) PlaySound(SoundManager::getShockgateSfx());
 					if (flyer[i] != NULL && shockgate->hitboxCheckFlyers(flyer[i]->getPos())) {
 						flyer[i]->setShocked(true);
 					}
@@ -220,10 +227,11 @@ namespace sSlinger {
 			for (int i = 0; i < E1MAX; i++) {
 				if (fireball != NULL && flyer[i] != NULL) {
 					if (CheckCollisionCircles(flyer[i]->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
-							delete fireball;
-							fireball = NULL;
-							delete flyer[i];
-							flyer[i] = NULL;
+						if (!IsSoundPlaying(SoundManager::getFireballSfx())) PlaySound(SoundManager::getFireballSfx());
+						delete fireball;
+						fireball = NULL;
+						delete flyer[i];
+						flyer[i] = NULL;
 					}
 				}
 					
@@ -231,6 +239,7 @@ namespace sSlinger {
 			for (int i = 0; i < E1MAX; i++) {
 				if (fireball != NULL && crawler[i] != NULL) {
 					if (CheckCollisionCircles(crawler[i]->getPos(), 20, fireball->getPos(), fireball->getHitbox())) {
+						if (!IsSoundPlaying(SoundManager::getFireballSfx())) PlaySound(SoundManager::getFireballSfx());
 						delete fireball;
 						fireball = NULL;
 						delete crawler[i];
@@ -257,7 +266,9 @@ namespace sSlinger {
 			}
 
 		}
-	
+
+		SoundManager::unloadSounds();
+		TextureManager::unloadTextures();
 	}
 
 	void Mainframe::setGameBool(bool result) {
