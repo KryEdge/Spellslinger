@@ -67,7 +67,7 @@ void menuScene() {
 	closeButton.y = menuPlayTextY + 150;
 	closeButton.height = 30;
 	closeButton.width = 81.25f;
-	Texture2D logo = LoadTexture("../res/Assets/logo.png");
+	Texture2D logo = LoadTexture("Assets/logo.png");
 
 	while (menuBool) {
 		BeginDrawing();
@@ -135,8 +135,8 @@ void creditScene() {
 	creditsButton.width = 113;
 	int creditStartX = 100;
 	int creditFontSize = 20;
-	Texture2D credits = LoadTexture("../res/Assets/creditos.png");
-	Texture2D credits2 = LoadTexture("../res/Assets/creditos2.png");
+	Texture2D credits = LoadTexture("Assets/creditos.png");
+	Texture2D credits2 = LoadTexture("Assets/creditos2.png");
 
 	while (creditBool) {
 		BeginDrawing();
