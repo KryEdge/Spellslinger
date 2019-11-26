@@ -12,14 +12,14 @@ namespace sSlinger {
 	Sound SoundManager::_vacuumSfx = Sound();
 
 	void SoundManager::loadSounds() {
-		_mainTheme = LoadMusicStream("../res/Assets/Berserk.ogg");
-		_ghostSfx = LoadSound("../res/Assets/sfx/ghost1.wav");
+		_mainTheme = LoadMusicStream("Assets/Berserk.ogg");
+		_ghostSfx = LoadSound("Assets/sfx/ghost1.wav");
 		SetSoundVolume(_ghostSfx, 0.2);
-		_fireballSfx = LoadSound("../res/Assets/sfx/fireball.wav");
-		_freezeSfx = LoadSound("../res/Assets/sfx/freeze.ogg");
-		_shockgateSfx = LoadSound("../res/Assets/sfx/shockgate.ogg");
-		_deathSfx = LoadSound("../res/Assets/sfx/death.ogg");
-		_vacuumSfx = LoadSound("../res/Assets/sfx/vacuum.wav");
+		_fireballSfx = LoadSound("Assets/sfx/fireball.wav");
+		_freezeSfx = LoadSound("Assets/sfx/freeze.ogg");
+		_shockgateSfx = LoadSound("Assets/sfx/shockgate.ogg");
+		_deathSfx = LoadSound("Assets/sfx/death.ogg");
+		_vacuumSfx = LoadSound("Assets/sfx/vacuum.wav");
 	}
 
 	void SoundManager::unloadSounds() {

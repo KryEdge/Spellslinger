@@ -11,18 +11,18 @@ namespace sSlinger {
 	Texture2D TextureManager::_flashFreeze = Texture2D();
 
 	void TextureManager::loadTextures() {
-		_ghostSprite = LoadTexture("../res/Assets/Flyer_Float.png");
+		_ghostSprite = LoadTexture("Assets/Flyer_Float.png");
 		_ghostSprite.height *= 2.2;
 		_ghostSprite.width *= 2.2;
-		_crawlerSprite = LoadTexture("../res/Assets/Crawler_Crawl.png");
+		_crawlerSprite = LoadTexture("Assets/Crawler_Crawl.png");
 		_crawlerSprite.height *= 2.2;
 		_crawlerSprite.width *= 2.2;
-		_playerSprite = LoadTexture("../res/Assets/mage-1.png");
+		_playerSprite = LoadTexture("Assets/mage-1.png");
 		_playerSprite.height /= 5;
 		_playerSprite.width /= 5;
-		_background = LoadTexture("../res/Assets/background.png");
-		_brick = LoadTexture("../res/Assets/brick.png");
-		_flashFreeze = LoadTexture("../res/Assets/freeze.png");
+		_background = LoadTexture("Assets/background.png");
+		_brick = LoadTexture("Assets/brick.png");
+		_flashFreeze = LoadTexture("Assets/freeze.png");
 	}
 
 	void TextureManager::unloadTextures() {
