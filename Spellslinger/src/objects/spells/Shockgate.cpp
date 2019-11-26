@@ -61,7 +61,6 @@ Vector2 Shockgate::getMousePos1() {
 Vector2 Shockgate::getMousePos2() {
 	return _mousePos2;
 }
-
 float Shockgate::getAoe() {
 	return _radius;
 }
@@ -75,13 +74,11 @@ void Shockgate::moveBullet() {
 	_pos.y += _distance.y / 60;
 
 }
-
 bool Shockgate::hitboxCheckFlyers(Vector2 posFlyer) {
 	if ((CheckCollisionPointTriangle(posFlyer, getMousePos1(), getMousePos2(), Vector2{ getMousePos1().x + 10,getMousePos1().y + 10 }))&& 
 		(CheckCollisionPointTriangle(posFlyer, getMousePos2(), getMousePos1(), Vector2{ getMousePos2().x + 10,getMousePos2().y + 10 }))) return true;
 	else return false;
 }
-
 bool Shockgate::hitboxCheckCrawlers(Vector2 posCrawler) {
 	if ((CheckCollisionPointTriangle(posCrawler, getMousePos1(), getMousePos2(), Vector2{ getMousePos1().x + 10,getMousePos1().y + 10 })) &&
 		(CheckCollisionPointTriangle(posCrawler, getMousePos2(), getMousePos1(), Vector2{ getMousePos2().x + 10,getMousePos2().y + 10 }))) return true;

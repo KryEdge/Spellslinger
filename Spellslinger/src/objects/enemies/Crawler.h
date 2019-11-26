@@ -23,19 +23,19 @@ namespace sSlinger {
 		Crawler();
 		~Crawler();
 		void setLife(int life);
-		void setSpeed(int x, int y);
 		Vector2 getPos();
 		void movement();
+		void setSpeed(int x, int y);
 		float getSpeedX();
 		float getSpeedY();
+		void moveToPoint(Vector2 Point);
 		float getTimer();
 		void increaseTimer(float increase);
-		void moveToPoint(Vector2 Point);
 		bool getShocked();
 		void setShocked(bool set);
 		void setFrozen(bool set);
-		bool getActive();
 		void setActive(bool active);
+		bool getActive();
 		void draw();
 	};
 

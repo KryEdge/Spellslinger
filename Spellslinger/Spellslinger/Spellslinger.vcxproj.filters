@@ -42,9 +42,6 @@
     <ClCompile Include="..\src\logic\Spellmanager.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
-    <ClCompile Include="FFreeze.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\objects\spells\Vacuum.cpp">
       <Filter>src\objects\spells</Filter>
     </ClCompile>
@@ -69,6 +66,9 @@
     <ClCompile Include="..\src\logic\SoundManager.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objects\spells\FFreeze\FFreeze.cpp">
+      <Filter>src\objects\spells</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\objects\player\Player.h">
@@ -83,7 +83,6 @@
     <ClInclude Include="..\src\logic\Spellmanager.h">
       <Filter>src\logic</Filter>
     </ClInclude>
-    <ClInclude Include="FFreeze.h" />
     <ClInclude Include="..\src\objects\spells\Vacuum.h">
       <Filter>src\objects\spells</Filter>
     </ClInclude>
@@ -107,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="..\src\logic\SoundManager.h">
       <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\spells\FFreeze\FFreeze.h">
+      <Filter>src\objects\spells</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

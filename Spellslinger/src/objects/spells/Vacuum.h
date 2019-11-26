@@ -15,13 +15,13 @@ public:
 	void effect();
 	void setTrigger(bool trigger);
 	bool getActive();
-	void setPos(Vector2 bulletPos);	
-	Vector2 getPos();
-	void setTarget(Vector2 target);
-	Vector2 getTarget();
-	float getAoe();
 	float getTimer();
 	void increaseTimer(float increase);
+	Vector2 getPos();
+	Vector2 getTarget();
+	void setPos(Vector2 bulletPos);	
+	void setTarget(Vector2 target);
+	float getAoe();
 	void vecBullet();
 	void moveBullet();
 };

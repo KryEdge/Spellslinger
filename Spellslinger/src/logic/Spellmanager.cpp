@@ -21,13 +21,6 @@ namespace sSlinger{
 			_spellButton[i].y = 10;
 		}
 	}
-	int SpellManager::getSelected() {
-		return _elementSelected;
-	}
-	void SpellManager::setSelected(int selected) {
-		_elementSelected = selected;
-	}
-
 	void SpellManager::spellmanager() {
 		DrawCircleLines(GetMouseX(), GetMouseY(), 15, _mouseColor);
 		for (int i = 0; i < 4; i++){
@@ -59,6 +52,13 @@ namespace sSlinger{
 			_elementSelected = 4;
 		}
 	}
+	int SpellManager::getSelected() {
+		return _elementSelected;
+	}
+	void SpellManager::setSelected(int selected) {
+		_elementSelected = selected;
+	}
+
 
 	Color SpellManager::getColor() {
 		return _mouseColor;

@@ -5,13 +5,12 @@ namespace sSlinger {
 	class SoundManager {
 	private:
 		static Music _mainTheme;
-
 		static Sound _ghostSfx;
 		static Sound _fireballSfx;
 		static Sound _freezeSfx;
-		static Sound _vacuumSfx;
 		static Sound _shockgateSfx;
 		static Sound _deathSfx;
+		static Sound _vacuumSfx;
 
 	public:
 		static void loadSounds();

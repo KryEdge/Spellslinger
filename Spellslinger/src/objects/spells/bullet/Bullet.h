@@ -18,9 +18,9 @@ public:
 	void setTrigger(bool trigger);
 	bool getTrigger();
 	float getHitbox();
-	void setActive(bool active);
 	bool getActive();
+	void setActive(bool active);
 	Vector2 getPos();
-	void moveBullet();
 	void vecBullet();
+	void moveBullet();
 };

@@ -30,7 +30,6 @@ float Vacuum::getTimer() {
 void Vacuum::increaseTimer(float increase) {
 	_timer += increase;
 }
-
 Vector2 Vacuum::getPos() {
 	return _pos;
 }
@@ -43,7 +42,6 @@ void Vacuum::setPos(Vector2 bulletPos) {
 void Vacuum::setTarget(Vector2 target) {
 	_target = target;
 }
-
 float Vacuum::getAoe() {
 	return _aoe;
 }
