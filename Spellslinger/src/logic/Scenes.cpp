@@ -146,6 +146,7 @@ void creditScene() {
 		
 		DrawTexture(credits, 0, titlePosY + 60, WHITE);
 		DrawTexture(credits2, screenWidth-credits2.width, 20, WHITE);
+
 		/*
 		DrawText(FormatText("Programmers"), creditStartX, 100, creditFontSize, RED);
 		DrawLine(creditStartX,120, creditStartX + 160, 120, RED);
@@ -156,7 +157,7 @@ void creditScene() {
 		DrawLine(creditStartX, 195, creditStartX + 160, 195, YELLOW);
 		DrawText(FormatText("Berserk - El Psy Kongroo"), creditStartX, 200, creditFontSize, WHITE);
 
-		//ALGO DE TODO ESTO HACE BUGGEAR DURISIMO AL PLAYER, NO SOLO LA TEXTURA, SINO TODO EL PLAYER
+		//AL ENTRAR AL JUEGO LUEGO DE ENTRAR A CREDITOS SE ROMPE EL SPRITE DEL JUGADOR.
 		
 		DrawText(FormatText("Assets"), creditStartX, 230, creditFontSize, SKYBLUE);
 		DrawLine(creditStartX, 250, creditStartX + 160, 250, SKYBLUE);
@@ -165,9 +166,9 @@ void creditScene() {
 
 		DrawText(FormatText("Sfx"), creditStartX, 305, creditFontSize, LIGHTGRAY);
 		DrawLine(creditStartX, 325, creditStartX + 160, 325, LIGHTGRAY);
-		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, creditFontSize, WHITE);
-
-		*/
+		DrawText(FormatText("Tomas Carceglia"), creditStartX, 330, creditFontSize, WHITE);*/
+		
+		
 		if (CheckCollisionPointRec(GetMousePosition(), creditsButton))
 			DrawText(FormatText("Back"), menuPlayTextX, menuPlayTextY + 160, promptFontSize, RED);
 		else

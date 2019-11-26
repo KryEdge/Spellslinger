@@ -13,5 +13,4 @@ public:
 	void setTrigger(bool trigger);
 	bool getTrigger();
 	Vector2 getPos();
-	void timer();
 };

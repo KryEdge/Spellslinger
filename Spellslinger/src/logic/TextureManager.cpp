@@ -9,7 +9,6 @@ namespace sSlinger {
 	Texture2D TextureManager::_background = Texture2D();
 	Texture2D TextureManager::_brick = Texture2D();
 	Texture2D TextureManager::_flashFreeze = Texture2D();
-	Texture2D TextureManager::_fireball = Texture2D();
 
 	void TextureManager::loadTextures() {
 		_ghostSprite = LoadTexture("../res/Assets/Flyer_Float.png");
@@ -24,7 +23,6 @@ namespace sSlinger {
 		_background = LoadTexture("../res/Assets/background.png");
 		_brick = LoadTexture("../res/Assets/brick.png");
 		_flashFreeze = LoadTexture("../res/Assets/freeze.png");
-		_fireball = LoadTexture("../res/Assets/fireball.png");
 	}
 
 	void TextureManager::unloadTextures() {
@@ -60,7 +58,4 @@ namespace sSlinger {
 		return _flashFreeze;
 	}
 	
-	Texture2D TextureManager::getFireball() {
-		return _fireball;
-	}
 }

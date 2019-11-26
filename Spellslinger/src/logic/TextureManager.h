@@ -13,7 +13,6 @@ namespace sSlinger {
 		static Texture2D _background;
 		static Texture2D _brick;
 		static Texture2D _flashFreeze;
-		static Texture2D _fireball;
 	public:
 		static void loadTextures();
 		static void unloadTextures();
@@ -23,7 +22,6 @@ namespace sSlinger {
 		static Texture2D getBackground();
 		static Texture2D getBrick();
 		static Texture2D getFFreeze();
-		static Texture2D getFireball();
 	};
 }
 	
