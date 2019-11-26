@@ -1,6 +1,6 @@
 #ifndef MAINFRAME_H
 #define MAINFRAME_H
-#define E1MAX 50
+#define E1MAX 39
 #include "raylib.h"
 #include "objects/player/Player.h"
 #include "objects/enemies/Enemy1.h"
