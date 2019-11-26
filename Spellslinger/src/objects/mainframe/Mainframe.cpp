@@ -54,6 +54,11 @@ namespace sSlinger {
 		bool FFreezeBool = false;
 		bool vacuumBool = false;
 		bool shockBool = false;
+		
+		int endCounter = 0;
+		bool endTimer = false;
+		float finaleTimer = 0.0f;
+		_Espawn = true;
 
 		while (_gameBool) {
 			HideCursor();
@@ -257,14 +262,32 @@ namespace sSlinger {
 				if (flyer[i]!=NULL)
 					if (flyer[i]->getPos().x<0){
 						flyer[i]->setActive(false);
+						endCounter++;
+						delete flyer[i];
+						flyer[i] = NULL;
 						
 					}
 				if (crawler[i] != NULL)
 					if (crawler[i]->getPos().x < 0) {
 						crawler[i]->setActive(false);
+						endCounter++;
+						delete crawler[i];
+						crawler[i] = NULL;
 					}
 			}
 
+			if (endCounter >= (E1MAX*2)-1){
+				_Espawn = false;
+				endTimer = true;
+			}
+			if (endTimer){
+				finaleTimer += GetFrameTime();
+				if (finaleTimer > 4.0f){
+					_gameBool = false;
+					scenes = menu;
+				}
+			}
+			cout << endCounter << endl;
 		}
 
 		SoundManager::unloadSounds();
